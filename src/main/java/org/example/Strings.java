@@ -1,0 +1,88 @@
+package org.example;
+
+import java.util.HashMap;
+import java.util.Iterator;
+import java.util.Map;
+
+public class Strings
+{
+
+    public static void main(String[] args) {
+
+        /*Given a route containing four directions(E W N S) find the shortest path to reach
+        the destionation*/
+        String str = "WNEENESENNN";
+        shortestPath(str);
+
+        //find largest string lexicographically
+        System.out.println("largest is "+largestString());
+
+        //convert string to uppercase
+        System.out.println("String in upper case is : "+convertEachWordFirstLetterToUpperCase("hi i am tanvi"));
+
+        //compress the given string
+        String newstr = compressString("aaabbcccdd");
+        System.out.println("The given string is compressed to "+newstr);
+    }
+    public static void shortestPath(String path){
+        int x=0,y=0;
+        for (int i=0;i<path.length();i++) {
+            char dir = path.charAt(i);
+            if (dir == 'E')
+                x += 1;
+            else if (dir == 'W')
+                x -= 1;
+            else if (dir == 'N')
+                y += 1;
+            else
+                y -= 1;
+
+        }
+        double shortestPath = Math.sqrt((x*x)+(y*y));
+        System.out.println("shortest path for the given directions is : "+shortestPath);
+    }
+
+    public static String largestString(){
+        String fruits[] = {"apple","cherry","banana"};
+        String largest=fruits[0];
+        for(int i=1;i<fruits.length;i++){
+            if(fruits[i].compareToIgnoreCase(largest)>0)
+                largest = fruits[i];
+        }
+        return largest;
+    }
+
+    public static String convertEachWordFirstLetterToUpperCase(String str){
+        StringBuilder sb = new StringBuilder("");
+        sb.append(Character.toUpperCase(str.charAt(0)));
+
+        for (int i=1;i<str.length();i++){
+            if(str.charAt(i)==' ' && i < str.length() - 1) {
+                    sb.append(str.charAt(i));
+                    i++;
+                    sb.append(Character.toUpperCase(str.charAt(i)));
+            }
+            else
+                sb.append(str.charAt(i));
+
+        }
+        return sb.toString();
+    }
+
+    public static String compressString(String str){
+
+        StringBuilder sb = new StringBuilder();
+
+        for(int i=0;i<str.length();i++){
+            int count=1;
+            while(i<str.length()-1 && str.charAt(i) == str.charAt(i+1)){
+                count++;
+                i++;
+            }
+            sb.append(str.charAt(i));
+            if(count>1)
+                sb.append(count);
+        }
+        return sb.toString();
+    }
+}
