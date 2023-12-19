@@ -1,18 +1,17 @@
 package org.example;
 
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.Collections;
-import java.util.List;
+import java.util.*;
 
 class Solution {
 
     public static void main(String[] args) {
         int array[] = {2,4,1,2,7,8};
-        System.out.println(maxCoins(array));
-
-       String str =  findGcdoFString("CCCAAAAAA","AAAAAAAAACCC");
-        System.out.println("GCD of above strings is "+str);
+//        System.out.println(maxCoins(array));
+        int numsp[] = {20,100,10,12,5,13};
+     /*  String str =  findGcdoFString("CCCAAAAAA","AAAAAAAAACCC");
+        System.out.println("GCD of above strings is "+str);*/
+//        System.out.println(reversedString("the sky   is blue"));
+        System.out.println(isIncreasingTriplet(numsp));
     }
     public static int maxCoins(int[] piles) {
         // 2 4 1 2 7 8
@@ -92,6 +91,52 @@ class Solution {
 
         // Return gcd of a and b
         return result;
+    }
+
+    public static String reversedString(String s){
+        Stack<String> stack = new Stack<>();
+        int j=0,i;
+        for(i=0;i<s.length();i++){
+
+            if(s.charAt(i) == ' '){
+                String str = s.substring(j,i);
+                if(!str.trim().isEmpty()) {
+                    stack.push(s.substring(j, i).trim());
+                    j = i + 1;
+                }
+            }
+        }
+        String temp = s.substring(j,i);
+        if(!temp.trim().isEmpty()) {
+            stack.push(s.substring(j, i));
+        }
+
+        System.out.println(stack);
+        String result="";
+        while (!stack.isEmpty()){
+            result = result+stack.pop()+" ";
+        }
+        return result.trim();
+    }
+
+    public static boolean isIncreasingTriplet(int[] nums){
+        boolean triplet = false;
+        int i,j;
+        for(i=0,j=i+1;i<nums.length && j<nums.length;i++,j++){
+
+            if(nums[i]<nums[j]){
+                int k=j+1;
+                while(k<nums.length){
+                    if(nums[j]<nums[k]){
+                        triplet = true;
+                        break;
+                    }
+                    k++;
+                }
+
+            }
+        }
+        return triplet;
     }
 }
 

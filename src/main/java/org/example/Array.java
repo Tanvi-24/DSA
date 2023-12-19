@@ -16,6 +16,11 @@ public class Array {
         array.kadanesMaxSubarraySum(numbers);
         array.trappedRainWater(height);
         array.maxProfitforBuySellStock(stocks);
+        containerWithMostWater(new int[]{2,3,4,5,18,17,6});
+        System.out.println("Max operations "+ maxOperations(new int[]{4,4,1,3,1,3,2,2,5,5,1,5,2,1,2,3,5,4},2));
+
+        System.out.println("max avg of a sub array is :"+findMaxAverage(new int[]{-1},1));
+        maxVowels("weallloveyou",7);
     }
 
     public void pairs(int array[]){
@@ -152,4 +157,103 @@ public class Array {
         else
             System.out.println("profit is "+profit);
     }
+
+    public static void containerWithMostWater(int height[]){
+        int mostWater=Integer.MIN_VALUE;
+        int min;
+        int j=height.length-1,i=0;
+        Arrays.sort(height);
+        while(i<j){
+
+            min = Math.min(height[i],height[j]);
+            mostWater = Math.max(mostWater, min*(j-i));
+            if(i<j){
+                i++;
+            }
+            else
+            {
+                j--;
+            }
+        }
+        System.out.println("Container with most water"+mostWater);
+    }
+
+    public static int maxOperations(int nums[], int k){
+        int output=0;
+        int currSum=0;
+        int i=0,j=nums.length-1;
+        while(i<j){
+            currSum=nums[i]+nums[j];
+            if(currSum == k){
+                output++;
+                i++;
+                j--;
+            }
+            else if(currSum<k){
+                i++;
+            }
+            else{
+                j--;
+            }
+        }
+        return output;
+    }
+
+    public static double findMaxAverage(int[] nums, int k) {
+        double avg, max_avg = Integer.MIN_VALUE;
+        double sum=0.0;
+        int count,j,pointer;
+        for(int i=0;i<nums.length;i++) {
+            count = k;
+            j=i;
+            pointer = j+k-1;
+            while (count != 0 && j < nums.length && j<pointer && pointer<nums.length) {
+                sum += nums[j]+nums[pointer];
+                pointer--;
+                j++;
+                count=count-2;
+            }
+            if(count == 1){
+                if(j<nums.length){
+                    sum=sum+nums[j];
+                    count--;
+                }
+                else if(pointer<nums.length){
+                    sum =sum+nums[pointer];
+                    count--;
+                }
+            }
+            if (count == 0) {
+                avg = sum / k;
+                sum = 0.0;
+                max_avg = (avg > max_avg) ? avg : max_avg;
+            }
+            else {
+                break;
+            }
+        }
+        return max_avg;
+
+    }
+
+    public static void maxVowels(String s, int k) {
+        int count;
+        String str="";
+        String vowels = "aeiou";
+        int maxcount = Integer.MIN_VALUE;
+        for(int i=0;i<s.length()&& i+k<=s.length();i++){
+            count=0;
+            str = s.substring(i,i+k);
+            for(int j=0;j<str.length();j++){
+                if(vowels.contains(String.valueOf(str.charAt(j)))){
+                    count++;
+                }
+            }
+            maxcount = Math.max(count , maxcount);
+        }
+        System.out.println("Maximum number of vowels in a for a substring of length "+k+" is "+maxcount);
+
+    }
+
+
 }

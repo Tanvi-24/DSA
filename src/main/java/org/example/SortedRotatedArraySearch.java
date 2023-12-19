@@ -4,7 +4,7 @@ public class SortedRotatedArraySearch {
 
     public static void main(String[] args) {
         int array[] ={4,5,6,7,0,1,2,3};
-        int target =8;
+        int target =5;
 
         int index = search(array,target,0,array.length-1);
         System.out.println("Index of target "+target+" is "+index);

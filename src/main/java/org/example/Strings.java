@@ -23,6 +23,9 @@ public class Strings
         //compress the given string
         String newstr = compressString("aaabbcccdd");
         System.out.println("The given string is compressed to "+newstr);
+        char []chars={'a','b','c'};
+        System.out.println(compressCharArray(chars));
+        moveZeroes(new int[]{0,1,0,2,3});
     }
     public static void shortestPath(String path){
         int x=0,y=0;
@@ -85,4 +88,53 @@ public class Strings
         }
         return sb.toString();
     }
+
+    public static int compressCharArray(char[] chars){
+        int count =1;
+        String s="";
+
+        if(chars.length == 1)
+            return 1;
+
+        for(int i=0;i<chars.length;i++){
+            if(i<chars.length-1 && chars[i]!=chars[i+1]){
+                s=s+chars[i];
+                if(count!=1)
+                {
+                    s=s+count;
+                }
+                count=1;
+            }
+            else if(i==chars.length-1){
+                s=s+chars[i];
+                if(count!=1){
+                    s=s+(count-1);
+                }
+            }
+            else{
+                count++;
+            }
+        }
+
+        return s.length();
+    }
+
+    public static void moveZeroes(int[] nums) {
+        int i,j=0,count=0;
+        for(i=0;i<nums.length;i++){
+            if(nums[i]!=0){
+                nums[j]=nums[i];
+                if(i!=j)
+                {
+                    nums[i]=0;
+                }
+                j++;
+            }
+        }
+        System.out.println("nums array after moving zeros is ");
+        for (int n:nums) {
+            System.out.print(n+" ");
+        }
+    }
+
 }
