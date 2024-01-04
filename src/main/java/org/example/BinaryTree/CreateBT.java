@@ -119,6 +119,49 @@ public class CreateBT {
 
             return leftSum+rightSum+root.data;
         }
+
+        //time complexity is O(n^2)
+        public int diameterOfTree(Node root) {
+            if(root == null){
+                return 0;
+            }
+
+            int leftd = diameterOfTree(root.left);
+            int rightd = diameterOfTree(root.right);
+
+            int leftheight = height(root.left);
+            int rightheight = height(root.right);
+            int selfd = leftheight+rightheight+1;
+
+            return Math.max(selfd,Math.max(leftd,rightd));
+
+        }
+
+        static class Info{
+            int diameter;
+            int ht;
+
+            public Info(int diameter, int ht){
+                this.diameter =diameter;
+                this.ht = ht;
+            }
+        }
+
+        //Time complexity is O(n)
+         public Info findDiameter(Node root){
+            if(root == null){
+                return new Info(0,0);
+            }
+
+            Info leftInfo = findDiameter(root.left);
+            Info rightInfo = findDiameter(root.right);
+
+            int diameter = Math.max(leftInfo.ht+rightInfo.ht+1,Math.max(leftInfo.diameter,rightInfo.diameter));
+            int height  = Math.max(leftInfo.ht, rightInfo.ht)+1;
+
+            return new Info(diameter,height);
+        }
+
     }
 
     public static void main(String[] args) {
@@ -142,6 +185,9 @@ public class CreateBT {
         System.out.println("Height of the tree is "+ binaryTree.height(root));
         System.out.println("Count of Nodes in the tree is "+ binaryTree.countNodes(root));
         System.out.println("Sum of all the nodes of the tree is "+binaryTree.sumOfNodes(root));
+        System.out.println("Diameter of tree "+ binaryTree.diameterOfTree(root));
+        BinaryTree.Info info = binaryTree.findDiameter(root);
+        System.out.println("Diameter of tree with reduced time complexity "+ info.diameter);
     }
 
 }
