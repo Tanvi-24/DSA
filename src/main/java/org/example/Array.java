@@ -1,6 +1,8 @@
 package org.example;
 
+import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.List;
 
 public class Array {
 
@@ -10,17 +12,22 @@ public class Array {
         int  numbers[] = {1,-2,6,-1,3};
         int height[] ={4,2,0,6,3,2,5};
         int stocks[] ={7,1,5,3,6,4};
+        int newHeights[] = {0,1,0,2,1,0,1,3,2,1,2,1};
         array.pairs(numbers);
         array.subArray(numbers);
         array.findMaxSubArraySum(numbers);
         array.kadanesMaxSubarraySum(numbers);
-        array.trappedRainWater(height);
+        array.trappedRainWater(newHeights);
         array.maxProfitforBuySellStock(stocks);
         containerWithMostWater(new int[]{2,3,4,5,18,17,6});
         System.out.println("Max operations "+ maxOperations(new int[]{4,4,1,3,1,3,2,2,5,5,1,5,2,1,2,3,5,4},2));
 
         System.out.println("max avg of a sub array is :"+findMaxAverage(new int[]{-1},1));
         maxVowels("weallloveyou",7);
+
+        System.out.println(array.maximumTripletValue(new int[]{1000000,1,1000000}));
+        System.out.println("Get the only number remained from the list after removing kth numbers is "+
+                getKthNumber(new ArrayList<>(Arrays.asList(1,2,3,4,5)),3));
     }
 
     public void pairs(int array[]){
@@ -108,7 +115,7 @@ public class Array {
 
             maxSum = Math.max(maxSum,currSum);
         }
-        System.out.println("Maximum of the sum of the sub array using kadanes alogorith: " + maxSum);
+        System.out.println("Maximum of the sum of the sub array using kadanes algorithm: " + maxSum);
     }
 
     public void trappedRainWater(int height[]){
@@ -124,7 +131,6 @@ public class Array {
         rightMaxBoundary[rightMaxBoundary.length-1] = height[height.length-1];
 
         //setting rightmax boundary for each height element
-
         for (int j = height.length-2; j>=0;j--){
             rightMaxBoundary[j] = Math.max(rightMaxBoundary[j+1],height[j]);
         }
@@ -139,23 +145,20 @@ public class Array {
     public void maxProfitforBuySellStock(int prices[])
     {
         int selling_price=0;
-        int buying_price=prices[0];
+        int buying_price=Integer.MAX_VALUE;
+        int maxProfit = 0;
 
-        for (int i=1;i<prices.length;i++){
-            if(prices[i]<buying_price)
+        for (int i=0;i<prices.length;i++){
+            if(buying_price<prices[i])  {
+                int profit = prices[i]-buying_price;
+                maxProfit = Math.max(maxProfit,profit);
+            }
+            else{
                 buying_price = prices[i];
-
-            if(prices[i]>selling_price)
-                selling_price = prices[i];
-
+            }
         }
 
-        int profit = selling_price-buying_price;
-
-        if(profit<=0)
-            System.out.println("profit is 0");
-        else
-            System.out.println("profit is "+profit);
+        System.out.println("maximum price is "+maxProfit);
     }
 
     public static void containerWithMostWater(int height[]){
@@ -167,7 +170,7 @@ public class Array {
 
             min = Math.min(height[i],height[j]);
             mostWater = Math.max(mostWater, min*(j-i));
-            if(i<j){
+            if(height[i]<height[j]){
                 i++;
             }
             else
@@ -254,6 +257,40 @@ public class Array {
         System.out.println("Maximum number of vowels in a for a substring of length "+k+" is "+maxcount);
 
     }
+
+    public long maximumTripletValue(int[] nums) {
+
+        long maxValue = 0;
+        long value;
+        int k;
+        for(int i=0;i<nums.length;i++){
+            for(int j=i+1;j<nums.length;j++){
+                k=j+1;
+                while(k<nums.length){
+                    value = (nums[i]-nums[j]);
+                    value = value * nums[k];
+                    if(value>=0)
+                        maxValue = Math.max(value,maxValue);
+                    k++;
+                }
+            }
+        }
+        return maxValue;
+    }
+
+    public static int getKthNumber(List<Integer> nums, int k){
+        int size = nums.size();
+        int i=0;
+        int num = nums.get(i);
+        int count;
+        while(size!=1){
+            i =(i+k-1)%size;
+            nums.remove(i);
+            size = nums.size();
+        }
+        return nums.get(0);
+    }
+
 
 
 }

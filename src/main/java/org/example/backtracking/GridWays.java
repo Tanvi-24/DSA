@@ -22,7 +22,22 @@ public class GridWays {
         return w1+w2;
     }
     public static void main(String[] args) {
-    int m=3,n=3;
+    int m=3,n=7;
         System.out.println("total ways to reach grid "+gridWaysSolution(0,0,n,m));
+        /*
+        call grid ways solution call(grid,0,0,m-1,n-1,Integer.MIN_VALUE)
+        int sum = 0;
+        int call(grid,int sr,int sc,int er, int ec, int sum){
+        if(sc>ec || sr>er){
+        return 0;
+        }
+
+        call(sr+1,sc,m-1,n-1,sum),min(
+
+
+        sum = sum+grid[startr][startc]
+
+        call(
+        */
     }
 }

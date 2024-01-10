@@ -1,5 +1,6 @@
 package org.example;
 
+import java.util.Arrays;
 import java.util.HashMap;
 import java.util.Iterator;
 import java.util.Map;
@@ -26,6 +27,13 @@ public class Strings
         char []chars={'a','b','c'};
         System.out.println(compressCharArray(chars));
         moveZeroes(new int[]{0,1,0,2,3});
+        System.out.println("\nis the string panagram "+checkIfPangram("leetcode"));
+
+        String input = "aabbbbbccddb";
+        int[] result = longestIdenticalSubstring(input);
+        System.out.println("Input String: " + input);
+        System.out.println("Start index and length of the longest substring with identical characters: " + Arrays.toString(result));
+
     }
     public static void shortestPath(String path){
         int x=0,y=0;
@@ -57,9 +65,14 @@ public class Strings
 
     public static String convertEachWordFirstLetterToUpperCase(String str){
         StringBuilder sb = new StringBuilder("");
-        sb.append(Character.toUpperCase(str.charAt(0)));
-
-        for (int i=1;i<str.length();i++){
+//        sb.append(Character.toUpperCase(str.charAt(0)));
+        String[] arr = str.split(" ");
+        for (String s:arr) {
+            sb.append(Character.toUpperCase(s.trim().charAt(0)));
+            sb.append(s.substring(1));
+            sb.append(" ");
+        }
+       /* for (int i=1;i<str.length();i++){
             if(str.charAt(i)==' ' && i < str.length() - 1) {
                     sb.append(str.charAt(i));
                     i++;
@@ -68,7 +81,7 @@ public class Strings
             else
                 sb.append(str.charAt(i));
 
-        }
+        }*/
         return sb.toString();
     }
 
@@ -136,5 +149,52 @@ public class Strings
             System.out.print(n+" ");
         }
     }
+
+    public static boolean checkIfPangram(String sentence) {
+        String str = "abcdefghijklmnopqrstuvwxyz";
+
+        for(int i=0;i<str.length();i++)
+        {
+            if(!str.contains(String.valueOf(sentence.charAt(i)))){
+                return false;
+            }
+        }
+
+        return true;
+    }
+
+    public static int[] longestIdenticalSubstring(String s) {
+        if (s == null || s.isEmpty()) {
+            return new int[]{};
+        }
+
+        int start = 0;
+        int maxStart = 0;
+        int length = 1;
+        int maxLength = 1;
+
+        for (int i = 1; i < s.length(); i++) {
+            if (s.charAt(i) == s.charAt(i - 1)) {
+                length++;
+            } else {
+                if (length > maxLength) {
+                    maxLength = length;
+                    maxStart = start;
+                }
+                start = i;
+                length = 1;
+            }
+        }
+
+        // Check the last substring
+        if (length > maxLength) {
+            maxStart = start;
+            maxLength = length;
+        }
+
+        return new int[]{maxStart, maxLength};
+    }
+
+
 
 }
