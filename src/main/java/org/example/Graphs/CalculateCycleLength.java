@@ -16,7 +16,8 @@ public class CalculateCycleLength {
         while (i<array.length) {
             if ( i == startIndex) {
                 return count+1;
-            } else {
+            }
+            else {
                 count++;
                 i = array[i];
             }
@@ -25,7 +26,7 @@ public class CalculateCycleLength {
         return 0;
     }
     public static void main(String[] args) {
-        int array[] = {1,2,3,0};
-        System.out.println("Length of cycle is " +getLengthOfCycle(array,2));
+        int array[] = {1,2,4,0};
+        System.out.println("Length of cycle is " +getLengthOfCycle(array,1));
     }
 }
