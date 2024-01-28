@@ -57,13 +57,33 @@ public class BasicBinaryTree {
             System.out.print(root.data+ " ");
             inOrder(root.right);
         }
+
+        public static Node searchNode(Node root,int key){
+            if(root == null)
+            {
+                return null;
+            }
+
+            if(root.data == key){
+                return root;
+            }
+
+            if(key<root.data){
+                return searchNode(root.left,key);
+            }
+            else {
+                return searchNode(root.right,key);
+            }
+        }
         public static void main(String[] args) {
             Node root = null;
-            int array[] = {5,1,3,4,2,6};
+            int array[] = {4,2,7,1,3};
             for (int i=0;i<array.length;i++){
                 root = insertNode(root,array[i]);
             }
-
+            Node node = searchNode(root,2);
+            inOrder(node);
+            System.out.println();
             inOrder(root);
             System.out.println();
             System.out.println("is key present in tree "+search(root,7));

@@ -41,7 +41,9 @@ public class DeleteNode {
         }
 
         public static Node delete(Node root, int key){
-
+            if(root == null){
+                return null;
+            }
             if(root.data<key){
                 root.right = delete(root.right,key);
             }
