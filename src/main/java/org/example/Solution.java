@@ -6,11 +6,11 @@ class Solution {
 
     public static void main(String[] args) {
         int array[] = {2,4,1,2,7,8};
-//        System.out.println(maxCoins(array));
+       System.out.println(maxCoins(array));
         int numsp[] = {20,100,10,12,5,13};
-     /*  String str =  findGcdoFString("CCCAAAAAA","AAAAAAAAACCC");
-        System.out.println("GCD of above strings is "+str);*/
-//        System.out.println(reversedString("the sky   is blue"));
+       String str =  findGcdoFString("CCCAAAAAA","AAAAAAAAACCC");
+        System.out.println("GCD of above strings is "+str);
+        System.out.println(reversedString("the sky   is blue"));
         System.out.println(isIncreasingTriplet(numsp));
     }
     public static int maxCoins(int[] piles) {

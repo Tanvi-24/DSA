@@ -26,7 +26,7 @@ public class Strings
         System.out.println("The given string is compressed to "+newstr);
         char []chars={'a','b','c'};
         System.out.println(compressCharArray(chars));
-        moveZeroes(new int[]{0,1,0,2,3});
+        moveZeroes(new int[]{1,1,0,2,3});
         System.out.println("\nis the string panagram "+checkIfPangram("leetcode"));
 
         String input = "aabbbbbccddb";
@@ -152,10 +152,10 @@ public class Strings
 
     public static boolean checkIfPangram(String sentence) {
         String str = "abcdefghijklmnopqrstuvwxyz";
-
+        int j=0;
         for(int i=0;i<str.length();i++)
         {
-            if(!str.contains(String.valueOf(sentence.charAt(i)))){
+            if(!sentence.contains(String.valueOf(str.charAt(i)))) {
                 return false;
             }
         }

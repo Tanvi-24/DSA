@@ -44,8 +44,12 @@ public class Main {
         //with recursion
         System.out.println("Friends Pairing for " + friends + " is: " + friendsPairingWays(friends));
 
-        //print binary number for length N without having consecutive 1's
+        System.out.println("Binary number of length N\n");
+        //print binary number for length N
         printBinNumbers(3,0,"");
+        System.out.println("\nBinary number of length N and without consecutive 1's ");
+        //print binary number for length N without having consecutive 1's
+        printBinNumbers2(3,0,"");
     }
 
     public int findFactorialByRecursion(int n) {
@@ -228,8 +232,21 @@ public class Main {
             return;
         }
         printBinNumbers(n-1,0,str+0);
-        if(lastPlace == 0){
+
             printBinNumbers(n-1,1,str+1);
+
+    }
+
+    public static void printBinNumbers2(int n, int lastPlace, String str){
+        if(n == 0)
+        {
+            System.out.println(str);
+            return;
         }
+        printBinNumbers2(n-1,0,str+0);
+        if(lastPlace == 0) {
+            printBinNumbers2(n - 1, 1, str + 1);
+        }
+
     }
 }

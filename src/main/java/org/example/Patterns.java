@@ -14,6 +14,7 @@ public class Patterns {
         printUpwardsDownPyramid(5);
         System.out.println();
         printChar(5);
+        printHollowSquare(4);
 
 
     }
@@ -29,7 +30,21 @@ public class Patterns {
         }
     }
 
-
+    public static void printHollowSquare(int num){
+        for (int i = 1; i <= num; i++) {
+            for (int j = 1; j <= num; j++) {
+                // Print '*' for the first and last row, and for the first and last column
+                if (i == 1 || i == num || j == 1 || j == num) {
+                    System.out.print("* ");
+                } else {
+                    // Print a space for the inner part of the square
+                    System.out.print("  ");
+                }
+            }
+            // Move to the next line after each row is printed
+            System.out.println();
+        }
+    }
     public static void printInvertedHalfPyramid(int n){
         for(int i=1;i<=n;i++){
             for(int j=1;j<=i;j++){
