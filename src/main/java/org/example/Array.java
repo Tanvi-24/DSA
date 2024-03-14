@@ -165,8 +165,7 @@ public class Array {
         int mostWater=Integer.MIN_VALUE;
         int min;
         int j=height.length-1,i=0;
-        Arrays.sort(height);
-        while(i<j){
+        while(i<=j){
 
             min = Math.min(height[i],height[j]);
             mostWater = Math.max(mostWater, min*(j-i));
