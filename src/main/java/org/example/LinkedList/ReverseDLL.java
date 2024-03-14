@@ -53,13 +53,36 @@ public class ReverseDLL {
         }
         System.out.println("null\n");
     }
+
+    // 1->2->3
+    public void reverseDLL(){
+        Node current = head;
+        Node temp=null;
+        //to reverse linked list and point head to the last value we are using condition as current.next!=null or else we could have directly used current!=null
+        while(current.next!=null){
+            temp =current.next;
+            current.next=current.prev;
+            current.prev = temp;
+            current = current.prev;
+
+            head = current;
+        }
+
+        temp =current.next;
+        current.next=current.prev;
+        current.prev = temp;
+
+    }
     public static void main(String args[]){
         ReverseDLL reverseDLL = new ReverseDLL();
         reverseDLL.addLast(1);
         reverseDLL.addLast(2);
         reverseDLL.addLast(3);
         reverseDLL.printLL(head);
-        reverseDLL.printReverseUsingPrev(head);
+        reverseDLL.reverseDLL();
+        reverseDLL.printLL(head);
+//        reverseDLL.printReverseUsingPrev(head);
+
 
     }
 }
