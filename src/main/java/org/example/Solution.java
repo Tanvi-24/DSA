@@ -8,10 +8,14 @@ class Solution {
         int array[] = {2,4,1,2,7,8};
        System.out.println(maxCoins(array));
         int numsp[] = {20,100,10,12,5,13};
-       String str =  findGcdoFString("CCCAAAAAA","AAAAAAAAACCC");
+       String str =  findGcdoFString("CCCAAAAAA","CCC");
         System.out.println("GCD of above strings is "+str);
         System.out.println(reversedString("the sky   is blue"));
         System.out.println(isIncreasingTriplet(numsp));
+        List<String> strList = new ArrayList<>();
+        strList.add("one.two.three");
+        strList.add("four.five");
+        List<String> result = splitWordsBySeparator(strList,'.');
     }
     public static int maxCoins(int[] piles) {
         // 2 4 1 2 7 8
@@ -33,6 +37,7 @@ class Solution {
         int len2 = str2.length();
 
         int gcd = gcd(len1,len2);
+        System.out.println("gcd value " +gcd);
         int index=0;
         StringBuilder sb1 = new StringBuilder(str1);
         StringBuilder sb2 = new StringBuilder(str2);
@@ -137,6 +142,20 @@ class Solution {
             }
         }
         return triplet;
+    }
+
+    public static List<String> splitWordsBySeparator(List<String> words, char separator) {
+        List<String> result = new ArrayList<>();
+
+        for(int i=0;i<words.size();i++){
+            String str = words.get(i);
+            String arr[] = str.split(".");
+            for(int j=0;j<arr.length;j++){
+                result.add(arr[j]);
+            }
+        }
+
+        return result;
     }
 }
 
