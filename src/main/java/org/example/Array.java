@@ -20,6 +20,7 @@ public class Array {
         array.trappedRainWater(newHeights);
         array.maxProfitforBuySellStock(stocks);
         containerWithMostWater(new int[]{2,3,4,5,18,17,6});
+        System.out.println("Maximum product in a subarray is "+maxProduct(new int[]{1,9,3,2}));
         System.out.println("Max operations "+ maxOperations(new int[]{4,4,1,3,1,3,2,2,5,5,1,5,2,1,2,3,5,4},2));
 
         System.out.println("max avg of a sub array is :"+findMaxAverage(new int[]{-1},1));
@@ -30,6 +31,18 @@ public class Array {
                 getKthNumber(new ArrayList<>(Arrays.asList(1,2,3,4,5)),3));
     }
 
+    public static int maxProduct(int[] nums) {
+        var maxSoFar = nums[0];
+
+        for (int i = 1, maxEndingHere = nums[0], minEndingHere = nums[0]; i < nums.length; i++) {
+            var temp = Math.max(nums[i], Math.max(maxEndingHere * nums[i], minEndingHere * nums[i]));
+            minEndingHere = Math.min(nums[i], Math.min(minEndingHere * nums[i], maxEndingHere * nums[i]));
+            maxEndingHere = temp;
+            maxSoFar = Math.max(maxSoFar, Math.max(maxEndingHere, minEndingHere));
+        }
+
+        return maxSoFar;
+    }
     public void pairs(int array[]){
         for(int i=0;i<array.length;i++)
         {

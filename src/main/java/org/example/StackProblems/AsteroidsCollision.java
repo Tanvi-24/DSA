@@ -1,6 +1,8 @@
 package org.example.StackProblems;
 
+import java.util.Arrays;
 import java.util.Stack;
+import java.util.function.Predicate;
 
 public class AsteroidsCollision {
 
@@ -49,6 +51,7 @@ public class AsteroidsCollision {
 
         int []asteroids = {-2,-2,2,-2};
         int result[] = asteroidCollision(asteroids);
+        Arrays.stream(result).forEach(System.out::println);
         Stack<Integer> stack = new Stack<>();
 
 //        for (int i = 0; i < asteroids.length; i++) {

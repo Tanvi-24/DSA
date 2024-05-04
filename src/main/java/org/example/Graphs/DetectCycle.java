@@ -36,7 +36,7 @@ public class DetectCycle {
                 //case 3
                 if (!visited[e.dest]){
                     if(detectCycleUtil(graph,visited,e.dest,curr))
-                        return true;
+                        return true; 
                 } //case 1
                 else if(visited[e.dest] && e.dest != parent){
                     return true;

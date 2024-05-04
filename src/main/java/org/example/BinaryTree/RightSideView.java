@@ -6,6 +6,7 @@ import java.util.LinkedList;
 import java.util.List;
 import java.util.Map;
 import java.util.Queue;
+import java.util.stream.Collectors;
 
 public class RightSideView {
 
@@ -51,9 +52,12 @@ public class RightSideView {
                 q.add(new Info(info.dis+1,info.node.left));
             }
         }
-        for(Map.Entry<Integer,TreeNode> entry: hashmap.entrySet()){
+
+        /*for(Map.Entry<Integer,TreeNode> entry: hashmap.entrySet()){
             list.add(entry.getValue());
-        }
+        }*/
+        hashmap.forEach(list::add);
+
         return list;
     }
 
@@ -70,5 +74,6 @@ public class RightSideView {
         for(TreeNode t: list){
             System.out.println(t.val);
         }
+
     }
 }

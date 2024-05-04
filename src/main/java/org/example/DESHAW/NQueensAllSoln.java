@@ -1,6 +1,6 @@
-package org.example.backtracking;
+package org.example.DESHAW;
 
-public class NQueens {
+public class NQueensAllSoln {
     //time complexity = O(n!)
     static int count =0;
     public static void nQueensSolution(char board[][],int row){
@@ -12,11 +12,11 @@ public class NQueens {
 
         //column loop
 
-            for(int i=0;i<board.length;i++){
-                if(isSafe(board,row,i)){
-                    board[row][i]='Q';
-                    nQueensSolution(board,row+1);
-                    board[row][i]='X';
+        for(int i=0;i<board.length;i++){
+            if(isSafe(board,row,i)){
+                board[row][i]='Q';
+                nQueensSolution(board,row+1);
+                board[row][i]='X';
             }
         }
     }
