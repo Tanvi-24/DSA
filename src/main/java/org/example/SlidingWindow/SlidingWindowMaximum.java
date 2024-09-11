@@ -1,8 +1,10 @@
 package org.example.SlidingWindow;
 
+import java.util.Comparator;
 import java.util.PriorityQueue;
 
 public class SlidingWindowMaximum {
+
 
     static class Pair implements Comparable<Pair>{
         int number;
@@ -13,6 +15,13 @@ public class SlidingWindowMaximum {
             this.index = index;
         }
 
+        @Override
+        public String toString() {
+            return "Pair{" +
+                    "number=" + number +
+                    ", index=" + index +
+                    '}';
+        }
 
         @Override
         public int compareTo(Pair p2) {

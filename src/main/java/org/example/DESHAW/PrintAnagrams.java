@@ -18,10 +18,9 @@ public class PrintAnagrams {
             return this.x.compareTo(o.x);
         }
     }
-    static ArrayList<Pair>
-    createDuplicateArray(String[] wordArr, int size)
+    static ArrayList<Pair> createDuplicateArray(String[] wordArr, int size)
     {
-        ArrayList<Pair> dupArray = new ArrayList<Pair>();
+        ArrayList<Pair> dupArray = new ArrayList();
         for (int i = 0; i < size; i++) {
             Pair p = new Pair(wordArr[i], i);
             dupArray.add(p);
@@ -31,15 +30,12 @@ public class PrintAnagrams {
         }
         return dupArray;
     }
-    static void printAnagramsTogether(String[] wordArr,
-                                      int size)
+    static void printAnagramsTogether(String[] wordArr, int size)
     {
-
-        ArrayList<Pair> dupArray = new ArrayList<Pair>();
+        ArrayList<Pair> dupArray;
 
         ; // dupArray to store the word-index pair
-        dupArray = createDuplicateArray(
-                wordArr, size); // making copy of all the words
+        dupArray = createDuplicateArray(wordArr, size); // making copy of all the words
         // and their respective index
 
         // Iterate through all words in dupArray and sort

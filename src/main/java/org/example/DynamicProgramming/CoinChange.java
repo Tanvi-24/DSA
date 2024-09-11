@@ -4,11 +4,11 @@ public class CoinChange {
 
     public static int findTotalWaysOfCoinChange(int coins[], int sum){
         int dp[][] = new int[coins.length+1][sum+1];
-
+        //initialization
         for(int i=0;i<dp.length;i++){
             dp[i][0] = 1;
         }
-
+        //initialization
         for(int j=1;j<dp[0].length;j++){
             dp[0][j] = 0;
         }

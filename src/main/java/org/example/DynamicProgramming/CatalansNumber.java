@@ -57,6 +57,10 @@ public class CatalansNumber {
 //        System.out.println(cataloanRec(n));
         System.out.println(catalan_memoization(n,dp));
         System.out.println(catalan_tabulation(n));
+
+        for(int i=1;i<5;i++){
+            System.out.println(catalan_tabulation(i));
+        }
     }
 }
 

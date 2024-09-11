@@ -1,9 +1,13 @@
 package org.example;
 
 import java.util.Arrays;
+import java.util.Collection;
 import java.util.HashMap;
 import java.util.Iterator;
 import java.util.Map;
+import java.util.Set;
+import java.util.stream.Collectors;
+import java.util.stream.Stream;
 
 public class Strings
 {
@@ -22,7 +26,7 @@ public class Strings
         System.out.println("String in upper case is : "+convertEachWordFirstLetterToUpperCase("hi i am tanvi"));
 
         //compress the given string
-        String newstr = compressString("aaabbcccdd");
+        String newstr = compressString("aaabbcccdde");
         System.out.println("The given string is compressed to "+newstr);
         char []chars={'a','b','c'};
         System.out.println(compressCharArray(chars));
@@ -34,6 +38,19 @@ public class Strings
         System.out.println("Input String: " + input);
         System.out.println("Start index and length of the longest substring with identical characters: " + Arrays.toString(result));
 
+        System.out.println("*************");
+        System.out.println(reverseOnlyLetters("ab-cd"));
+        System.out.println(revWdsInASenSpecCharsAtSamePos("Th-is i%%s -an- honest wa-@-y"));
+        System.out.println(revWdsInASenSpecCharsAtSamePos("This   is a new    sentence with    many extra   white  space"));
+        System.out.println(reverseStringUsingLambdaExpr("Tanvi"));
+        Map<Integer, String> map = new HashMap<>();
+        map.put(1,"a");
+        map.put(2,"b");
+        Collection<String> values = map.values();
+        Set<Integer> keys = map.keySet();
+        map.entrySet().forEach(System.out::println);
+        System.out.println(values);
+        System.out.println(keys);
     }
     public static void shortestPath(String path){
         int x=0,y=0;
@@ -195,6 +212,46 @@ public class Strings
         return new int[]{maxStart, maxLength};
     }
 
+    public static String reverseOnlyLetters(String s) {
+        char array[] = s.toCharArray();
+        int i=0,j=array.length-1;
 
+        while(i<array.length && j>=0 && i<j){
+            if(Character.isLetter(array[i]) && Character.isLetter(array[j])){
+                char temp = array[i];
+                array[i] = array[j];
+                array[j] = temp;
+                i++;
+                j--;
+            }
+            else if(!Character.isLetter(array[i])){
+                i++;
+            }
+            else{
+                j--;
+            }
+        }
+        return new String(array);
+    }
 
+    public static String revWdsInASenSpecCharsAtSamePos(String s){
+        StringBuilder sb = new StringBuilder();
+        String str = s.replaceAll("\\s+"," ");
+        System.out.println(s);
+        System.out.println(str);
+        String array[] = str.split(" ");
+        for (String string: array) {
+            sb.append(reverseOnlyLetters(string)).append(" ");
+        }
+
+        return sb.toString().trim();
+    }
+
+    public static String reverseStringUsingLambdaExpr(String s){
+
+        return Stream.of(s)
+                .map(str-> new StringBuilder(str).reverse())
+                .collect(Collectors.joining());
+    }
 }
+

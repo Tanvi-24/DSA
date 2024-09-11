@@ -40,7 +40,7 @@ public class JobSequencing {
         for (int i=0;i<activities.length;i++){
             jobs.add(new Job(i,activities[i][0],activities[i][1]));
         }
-        Collections.sort(jobs,(obj1,obj2)->obj2.profit-obj1.profit); //sorting in ascending order
+        Collections.sort(jobs,(obj1,obj2)->obj2.profit-obj1.profit); //sorting in descending order
         ArrayList<Integer> seq = new ArrayList<>();
         for(int i =0 ;i<jobs.size();i++){
             Job curr = jobs.get(i);
