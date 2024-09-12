@@ -50,7 +50,7 @@ public class ZigZagConvert {
 
     public static void main(String[] args) {
         String str = "PAYPALISHIRING";
-        convert(str,3);
+        System.out.println(convert(str,3));
 
     }
 }

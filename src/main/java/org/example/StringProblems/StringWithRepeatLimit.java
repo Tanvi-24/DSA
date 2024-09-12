@@ -9,46 +9,39 @@ import java.util.TreeMap;
 //construct string with repeat limit lexicographically
 public class StringWithRepeatLimit {
     public static String repeatLimitedString(String s, int repeatLimit) {
-        Map<Character,Integer> charCount = new TreeMap<>(Collections.reverseOrder());
+        String alphabet = "abcdefghijklmnopqrstuvwxyz";
+        int []arr = new int[26];
+        StringBuilder str = new StringBuilder();
         for(int i=0;i<s.length();i++){
-            charCount.put(s.charAt(i),charCount.getOrDefault(s.charAt(i),0)+1);
+            arr[s.charAt(i)-'a']++;
         }
-        StringBuilder sb = new StringBuilder("");
-        List<Character> list = charCount.keySet().stream().sorted(Comparator.reverseOrder()).toList();
-
-//zzcccac
-        for(int i=0;i<list.size();i++){
-            if(charCount.get(list.get(i))<=repeatLimit){
-                String ch = Character.toString(list.get(i));
-                sb.append(ch.repeat(charCount.get(list.get(i))));
-            }
-            else{
-                String ch = Character.toString(list.get(i));
-                sb.append(ch.repeat(repeatLimit));
-                charCount.put(list.get(i),charCount.get(list.get(i))-repeatLimit);
-                int j = i+1;
-                int currCharCount = charCount.get(list.get(i));
-                while(currCharCount>0 && j<list.size()){
-                    if(charCount.get(list.get(j))>0 && j<list.size()){
-                        sb.append(list.get(j));
-                        charCount.put(list.get(j),charCount.get(list.get(j))-1);
-                        sb.append(ch.repeat(Math.min(repeatLimit,currCharCount)));
-                        currCharCount = charCount.get(ch.charAt(0))-Math.min(repeatLimit,currCharCount);
-                        charCount.put(ch.charAt(0),currCharCount);
+        for(int i=arr.length-1;i>=0;i--){
+            if(arr[i]<=repeatLimit){
+                String a = Character.toString(alphabet.charAt(i));
+                str.append(a.repeat(arr[i]));
+            }else{
+                String a = Character.toString(alphabet.charAt(i));
+                str.append(a.repeat(repeatLimit));
+                arr[i]-=repeatLimit;
+                int j = i-1;
+                while(arr[i]>0&&j>=0){
+                    if(arr[j]>0){
+                        str.append(alphabet.charAt(j));
+                        arr[j]--;
+                        str.append(a.repeat(Math.min(repeatLimit, arr[i])));
+                        arr[i]-=Math.min(repeatLimit, arr[i]);
                     }
-                    if(charCount.get(list.get(j))==0){
-                        j++;
-                    }
+                    if(arr[j]==0)
+                        j--;
                 }
-                //i=j;
+                i=j+1;
             }
         }
-
-        return sb.toString();
+        return str.toString();
     }
 
     public static void main(String[] args) {
-        System.out.println(repeatLimitedString("ccazzacc",3));
+       // System.out.println(repeatLimitedString("ccazzacc",3));
         System.out.println(repeatLimitedString("aababab",2));
     }
 }
