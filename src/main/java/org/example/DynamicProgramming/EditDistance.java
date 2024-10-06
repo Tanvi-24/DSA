@@ -28,8 +28,8 @@ public class EditDistance {
                     dp[i][j] = dp[i-1][j-1];
                 }
                 else{
-                    int ans1 = Math.min(dp[i][j-1],dp[i-1][j]);
-                    dp[i][j] = Math.min(ans1,dp[i-1][j-1])+1;
+                    int ans1 = Math.min(dp[i][j-1],dp[i-1][j]); //check if next character is equal in both the strings alternately
+                    dp[i][j] = Math.min(ans1,dp[i-1][j-1])+1; // check if the next character for both string is equal
                 }
             }
         }

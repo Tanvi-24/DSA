@@ -16,6 +16,7 @@ class Solution {
         strList.add("one.two.three");
         strList.add("four.five");
         List<String> result = splitWordsBySeparator(strList,'.');
+        System.out.println(result);
     }
     public static int maxCoins(int[] piles) {
         // 2 4 1 2 7 8
@@ -149,7 +150,7 @@ class Solution {
 
         for(int i=0;i<words.size();i++){
             String str = words.get(i);
-            String arr[] = str.split(".");
+            String arr[] = str.split("\\.");
             for(int j=0;j<arr.length;j++){
                 result.add(arr[j]);
             }
