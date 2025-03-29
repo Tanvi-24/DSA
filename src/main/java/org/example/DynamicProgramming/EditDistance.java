@@ -1,5 +1,18 @@
 package org.example.DynamicProgramming;
+/*
+    Tumhala 2 strings str1 ani str2 dile aahet. Tumhala sangaycha ahe ki minimum kitkya
+     operations ne str1 la str2 madhe convert karu shakta.
+    Allowed operations:
+    Insert a character
+    Delete a character
+    Replace a character
 
+    dp[i][j] = minimum operations required to convert first i characters of str1 to
+     first j characters of str2
+
+     Edit Distance is a classic DP problem, important for text transformation, diff tools, spell checkers, and asked frequently in interviews.
+    DP table madhe bottom-up approach ne minimum edit path nighto.
+ */
 public class EditDistance {
     public static int getMinimumOpsToConvert(String str1, String str2){
         int n = str1.length();

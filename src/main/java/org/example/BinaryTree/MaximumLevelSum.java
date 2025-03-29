@@ -5,6 +5,24 @@ import java.util.LinkedList;
 import java.util.Map;
 import java.util.Queue;
 
+/*
+Problem:
+    Given a binary tree, find the level (1-based index) jithe nodes cha sum maximum aahe.
+    ✅ Logic:
+    BFS Traversal (Level Order):
+    Queue (q) madhe nodes store kele aahet Info object madhe — jithe dis mhanje current level, and node mhanje TreeNode.
+    HashMap madhye level wise node values cha sum maintain karto.
+    Processing:
+    Queue madhun node kadhun, tya node cha value hashmap madhye accumulate karto (using dis as key).
+    Mag tyachya left ani right child la queue madhe add karto with level dis+1.
+    Finding Max Sum Level:
+    HashMap iterate karun maximum sum find karto ani tyacha level return karto (key + 1 because levels are 1-based).
+    ✅ Complexity:
+    Time: O(n) – each node once visit karto.
+    Space: O(n) – HashMap ani Queue sathi.
+    ✅ Output:
+    Code maximum level sum calculate karun, kontya level var aahe te 1-based index return karto.
+ */
 public class MaximumLevelSum {
     static class TreeNode {
         int val;

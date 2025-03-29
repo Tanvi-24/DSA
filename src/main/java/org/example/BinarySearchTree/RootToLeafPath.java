@@ -1,7 +1,20 @@
 package org.example.BinarySearchTree;
 
 import java.util.ArrayList;
-
+/*
+    Problem: Binary Search Tree (BST) madhye root node pasun leaf node paryanta sagle
+    possible paths print karayche aahet.
+    Logic: Recursive method printRootToLeafPath():
+    Current node list madhye add karto.
+    Leaf node (left ani right null) asel tar list madhla path print karto.
+    Recursive call left ani right subtree sathi karto, ani backtrack karnyasathi list madhla
+     last node remove karto.
+    Backtracking cha use:
+    Backtracking mule ekach list madhye sagle paths efficiently store ani print karto.
+    Complexity:
+    Time: O(n) (each node once)
+    Space: O(h) recursion stack + O(h) list space, (h = tree height).
+ */
 public class RootToLeafPath {
     static class Node {
         int data;

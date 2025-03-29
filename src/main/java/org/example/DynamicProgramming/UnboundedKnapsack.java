@@ -1,5 +1,36 @@
 package org.example.DynamicProgramming;
+/*
+    Given:
+    val[] → values of items
+    wt[] → weights of items
+    w → total capacity of the bag
+    You can pick the same item multiple times (unbounded),
+    and the goal is to maximize the total profit without exceeding the weight limit.
 
+    Use Dynamic Programming (Tabulation) where:
+    dp[i][j] = maximum profit using first i items and bag capacity j.
+     Initialization:
+    First row dp[0][j] = 0 → no items, no profit.
+    First column dp[i][0] = 0 → 0 capacity, no profit.
+
+    Transition:
+    For every item i and weight j:
+    If item weight ≤ current capacity (j):
+    include =  Math.max(val[i-1]+dp[i][j-wt[i-1]],dp[i-1][j]); (pick same item again)
+    exclude = dp[i-1][j] (skip item)
+    dp[i][j] = max(include, exclude)
+    Else, skip the item → dp[i][j] = dp[i-1][j]
+
+     Example:
+    val[] = {15,14,10,45,30}
+    wt[] = {2, 5, 1, 3, 4}
+    w = 7
+    → Maximum profit is calculated and stored in dp[val.length][w].
+    ✅ Output:
+
+    You get the maximum profit that can be obtained by picking items multiple times
+    without crossing the weight limit.
+ */
 public class UnboundedKnapsack {
     public static void main(String[] args) {
         int val[] = {15,14,10,45,30};

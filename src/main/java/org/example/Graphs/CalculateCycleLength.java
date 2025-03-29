@@ -1,5 +1,23 @@
 package org.example.Graphs;
+/*
+    You are given an array of integers. Each element in the array points to the next index.
+    You're asked to detect a cycle starting from a specific index and return its length.
 
+    Start from startIndex, and keep moving to the next index based on value in arr[i].
+    Maintain a visited[] array to track which indices you've already seen.
+    If you revisit a visited index, that means a cycle is detected → return the cycle length.
+    If you go out of bounds, that means no cycle → return -1.
+
+    Method: findCycleLength(int[] arr, int startIndex)
+    visited[]: boolean array to mark visited indices.
+    Loop until the index is within bounds.
+    If already visited → return cycleLength (cycle found).
+    Else → mark visited, move to next index using arr[currentIndex].
+    If loop ends without repeating → return -1.
+
+    Time Complexity:
+    O(N) – In worst case, we might visit all nodes once.
+ */
 public class CalculateCycleLength {
 
     public static int findCycleLength(int[] arr, int startIndex) {

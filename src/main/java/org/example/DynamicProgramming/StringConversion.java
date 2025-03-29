@@ -1,5 +1,16 @@
 package org.example.DynamicProgramming;
+/*
+    Convert str1 → str2 using only insertion and deletion operations.
+    We need to find minimum number of insertions & deletions required.
 
+    Logic:
+    First, find LCS (Longest Common Subsequence) between str1 and str2.
+    Characters not part of LCS need to be deleted or inserted
+
+    Why LCS?
+    Because LCS is the part already common in both strings.
+    So, we only have to delete extra characters from str1 and insert missing characters from str2.
+ */
 public class StringConversion {
 
     //convert string 1 to string 2 using only deletion and insertion

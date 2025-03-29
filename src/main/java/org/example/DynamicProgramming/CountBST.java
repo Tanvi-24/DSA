@@ -1,5 +1,17 @@
 package org.example.DynamicProgramming;
+/*
+    Dilelya n nodes using, kitkya different Binary Search Trees (BSTs) banavta yetil?
+    The number of unique BSTs with n nodes is given by the nth Catalan Number.
+    Formula:
+    dp[n] = Σ (dp[i] * dp[n - i - 1]) for i = 0 to n - 1
+    For each i (total nodes), we fix every j as root.
+    Left subtree = j nodes
+    Right subtree = i-j-1 nodes
+    Multiply their counts.
 
+    Yeh code Catalan number using DP use karto to find number of BSTs.
+    He concept DP + Recursion tree combinations problems sathi important ahe – especially in interviews
+ */
 public class CountBST {
     //find number of all possible BST's with given n nodes
 

@@ -1,5 +1,16 @@
 package org.example.BinarySearchTree;
-
+/*
+    Problem: Given Binary Search Tree (BST) madhye specific range (k1 to k2) madhle nodes print karayche aahet.
+    Logic: Method printInRange() recursive approach ni BST madhye specific range madhle nodes efficiently search karte:
+    Current node data jar range madhye asel (k1 <= root.data <= k2), tar left ani right subtree check karto.
+    Current node data jar range peksha kami asel (root.data < k1), tar right subtree madhye search karto.
+    Current node data jar range peksha jasta asel (root.data > k2), tar left subtree madhye search karto.
+    Advantage:
+    BST cha property use karun unnecessary nodes skip karto, jyane traversal efficient hote.
+    Complexity:
+    Time: O(h + m) (h = height, m = number of nodes in range)
+    Space: O(h) (recursion stack height wise).
+ */
 public class PrintInRange {
     static class Node {
         int data;

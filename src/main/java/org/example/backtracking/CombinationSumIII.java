@@ -2,7 +2,17 @@ package org.example.backtracking;
 
 import java.util.ArrayList;
 import java.util.List;
-
+/*
+    CombinationSumIII (Backtracking) in Brief:
+    Ha code combinationSum3 madhe, given number (n) cha sum asnare exact k numbers che unique combinations
+    shodhto, fakt 1 te 9 numbers vaprun.
+    Backtracking approach vaprun, combine method madhe recursion karun sagle possible combinations check
+     karto; jar exact sum ani required size (k) cha combination bhetla tar result madhe add karto,
+     nahi tar discard karto ani pudhe jat rahato.
+    Overall:
+    Recursion ani backtracking mule efficient ani accurate combinations generate kele jatat;
+    unnecessary combinations avoid kele jatat.
+ */
 public class CombinationSumIII {
 
     public static List<List<Integer>> combinationSum3(int k, int n) {
@@ -39,7 +49,7 @@ public class CombinationSumIII {
     }
 
     public static void main(String[] args) {
-        int n = 7, k=3;
+        int n = 8, k=3;
         System.out.println(combinationSum3(k,n));
 
     }

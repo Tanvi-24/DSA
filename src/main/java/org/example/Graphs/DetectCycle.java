@@ -1,7 +1,31 @@
 package org.example.Graphs;
 
 import java.util.ArrayList;
+/*
+    Tumhala ek undirected graph (using adjacency list) dila ahe.
+    Tumhala check karaycha ahe ki graph madhye cycle exist karto ka.
 
+    Approach: DFS-based Cycle Detection
+    Visited array banavla to keep track of visited nodes.
+    For each node not visited yet, we call detectCycleUtil().
+
+    detectCycleUtil(graph, visited, curr, parent)
+    Visit curr and mark as true in visited array.
+    For each edge from current node:
+    If neighbor not visited → recursive DFS call.
+    If neighbor is visited and not the parent → Cycle exists!
+
+    Cases in DFS:
+    visited[neighbor] == false → go deeper (DFS call).
+    visited[neighbor] == true && neighbor == parent → continue.
+    visited[neighbor] == true && neighbor != parent → Cycle Detected!
+
+    Time Complexity:
+    O(V + E) → Every node & edge visited once in DFS.
+
+    This code helps in checking cycle in undirected graphs and is very useful in problems
+     involving graph validation, trees, or network structures
+ */
 public class DetectCycle {
 
     static class Edge {

@@ -3,6 +3,25 @@ package org.example.Graphs;
 import java.util.ArrayList;
 import java.util.Stack;
 
+/*
+    Aplyala ek Directed Acyclic Graph (DAG) dila ahe, ani tyacha topological sort find karaycha ahe.
+    Topological sort manje ek linear ordering of vertices such that every directed edge u → v,
+     u comes before v in ordering.
+
+     Logic (DFS-based Topological Sort):
+    public static void topologicalSort(ArrayList<Edge>[] graph)
+    visited[]: check karto ki node already visited ahe ka.
+    Stack: order maintain karayla je reverse karun final topological order dakhavtoy.
+
+    topSortUtil (Recursive DFS):
+    public static void topSortUtil(ArrayList<Edge>[] graph, int curr, boolean[] visited, Stack<Integer> stack)
+    Current node la visited mark karto.
+    Saglya neighbors la DFS call karto.
+    Saglya neighbors visit zalyavar, stack.push(curr) karto → means processing complete for that node.
+
+    O(V + E) → for visiting all vertices and edges once
+
+ */
 public class TopologicalSort {
     static class Edge {
         int src;

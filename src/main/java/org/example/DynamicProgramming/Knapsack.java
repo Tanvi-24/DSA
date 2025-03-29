@@ -1,7 +1,29 @@
 package org.example.DynamicProgramming;
 
-import java.util.Arrays;
+/*
+    Tumhala val[] (values) ani wt[] (weights) chya form madhe items diley aahet.
+    Tumcha bag (knapsack) chi capacity w aahe.
+    Tumhala maximum value milvaychi aahe aashi items select karun jya chi total weight w
+    peksha adhik nahi hot.
+    Pan ek item ekdach gheu shakta (0/1 knapsack).
+    Base case: if bag chi capacity 0 aahe or no items left → return 0.
+    At each step, two choices:
+    Include current item → val[n-1] + knapsack(...)
+    Exclude current item → knapsack(...)
+    Return max(include, exclude).
+    In memoization
+    Same recursion logic, but dp[n][w] madhye store kelay.
+    If value already calculated (dp[n][w] != -1), directly return.
 
+    In Tabulation
+    DP table dp[n+1][w+1] initialize kela.
+    Loop through all items and weights:
+    If item chi weight <= current weight, apply include/exclude logic.
+    Else, copy value from top (exclude).
+    dp table print karun values visualize kelet.
+    Final answer: max value of items that can fit in knapsack of capacity w
+
+ */
 public class Knapsack {
 
     //normal recursion

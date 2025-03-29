@@ -1,7 +1,17 @@
 package org.example.DESHAW;
 
 // Java program to detect and remove loop in linked list
+/*
+    Detect kara ki linked list madhe cycle/loop ahe ka, aani jari asel tar toh remove kara.
+    ✅ Step 1: Detect Loop (Floyd’s Algorithm):
+    slow = 1 step
+    fast = 2 steps
+    Jar kahi point var slow == fast zale, tar loop ahe.
+    ✅ Step 2: Remove Loop:
+    Loop madhe traversal karun loop length count karto.
+    Last node je loop madhe next point karto — tyacha .next = null karun cycle break karto.
 
+ */
 class RemoveCycleLL {
 
     static Node head;

@@ -4,7 +4,22 @@ import java.util.Arrays;
 import java.util.LinkedList;
 import java.util.Queue;
 
-
+/*
+    Problem:
+    Binary tree cha structure ek String madhe convert karaycha (Serialize),
+    ani tya String pasun tree parat construct karaycha (Deserialize).
+    Logic for Serialization:
+    Recursive preorder traversal vaprun each node cha value ek StringBuilder madhe store karto.
+    Node null asel tar special marker ("null") append karto; jyamule structure accurately record hoto.
+    Logic for Deserialization:
+    Serialized String split karun queue madhe store karto.
+    Recursive function (deserializeHelper) queue madhun values kadhtoy ani nodes create karto;
+     "null" asel tar node null thevto.
+    Complexity:
+    Time: Serialize ani Deserialize donhi methods sathi O(n) (each node exactly once).
+    Space: O(n) (queue ani recursion stack mule).
+    Final output madhun verify karto ki serialized tree ani deserialized tree exactly same aahet.
+ */
 
 public class BinaryTreeSerialization {
     static class TreeNode {

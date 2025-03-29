@@ -1,5 +1,18 @@
 package org.example.BinaryTree;
-
+/*
+    Problem:
+    Check karaycha aahe ki ek binary tree cha subtree (subRoot) original tree (root) madhye exist karto ka.
+    Logic:
+    isSubtree() recursively traverse karto original tree madhe.
+    Jar current node cha data subRoot cha data barobar asel, tar isIdentical() call karto donhi trees identical aahet ka te check karayla.
+    isIdentical() recursively check karto donhi trees cha structure ani node values same aahet ka.
+    If identical, return true; nahi tar left ani right subtree madhe search karto.
+    Complexity:
+    Time: Worst-case O(n*m) jithe n = size of main tree, m = size of subtree.
+    Space: O(h) recursion stack (h = height of tree).
+    Output:
+    Main method madhe isSubtree(root, subRoot) call karto ani result print karto (true/false).
+ */
 public class SubTreeOfTree {
     static class Node{
         int data;

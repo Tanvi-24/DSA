@@ -1,5 +1,14 @@
 package org.example.DynamicProgramming;
 
+/*
+    Tumhala dilelya str1 and str2 madhe longest continuous (substring) common part find karaycha aahe.
+    Substring = continuous characters.
+    Output = length of longest matching substring.
+
+    Tumhala dilelya str1 and str2 madhe longest continuous (substring) common part find karaycha aahe.
+    Substring = continuous characters.
+    Output = length of longest matching substring.
+ */
 public class LongestCommonSubstring {
 
     public static int getLongestCommonSubstring(String str1, String str2, int n, int m){

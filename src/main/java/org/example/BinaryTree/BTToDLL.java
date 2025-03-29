@@ -1,5 +1,19 @@
 package org.example.BinaryTree;
-
+/*
+    Problem:
+    Ek given Binary Tree (BT) la Doubly Linked List (DLL) madhe convert karaycha aahe (inorder sequence madhe).
+    Logic:
+    Recursive method (convertBTToDLL) inorder traversal ni binary tree convert karto.
+    Left subtree convert kelela DLL cha last node (tail) current root node shi connect karto (left/right pointers vaprun).
+    Right subtree same logic vaprun convert karto ani last la tail update karto.
+    Implementation Detail:
+    tail global variable maintain kelay jo last node store karto, jyamule efficient ani simple linking hoil.
+    Recursion madhe head node return hoto jo converted DLL cha starting point asto.
+    Complexity:
+    Time: O(n) (each node exactly once visit hoto)
+    Space: O(h) (recursion stack, h = height of tree)
+    Final madhye DLL traversal karun inorder sequence verify karto.
+ */
 public class BTToDLL {
     static class Node
     {
@@ -65,6 +79,4 @@ public class BTToDLL {
     traversal(head);
 
         }
-
-
 }

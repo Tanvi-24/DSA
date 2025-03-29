@@ -1,5 +1,22 @@
 package org.example.BinaryTree;
 
+/*
+    Problem:
+    Ek given Binary Tree madhla longest Zigzag path cha length find karaycha aahe.
+    Zigzag path mhanje alternate left-right or right-left direction madhla path.
+    Logic:
+    Recursive method (zigzag) madhye, each node varun zigzag path track karto.
+    Direction ani count maintain karun, jar direction change jhala tar count increment karto;
+     nahi tar count reset karto.
+    Global variable (maxCount) madhye maximum zigzag path length update karto.
+    Implementation details:
+    Initial root node pasun separately left ani right direction la call karto.
+    Maximum count maintain karto ani final result return karto.
+    Complexity:
+    Time: O(n) (each node exactly once visit karto)
+    Space: O(h) (recursion stack mule)
+    Final madhye longest zigzag path cha length print karto.
+ */
 public class FindLongestZigzag {
 
     static class TreeNode{

@@ -2,7 +2,23 @@ package org.example.Graphs;
 
 import java.util.ArrayList;
 import java.util.PriorityQueue;
+/*
+    Aplyala connected, undirected weighted graph dila ahe,
+    ani aplyala Minimum Spanning Tree (MST) chi cost find karaychi ahe without forming cycles.
 
+    Prim’s Algorithm Overview:
+    Prim’s algorithm ha greedy algorithm ahe jo MST banvayla use hoto.
+    MST mhnje ek aša tree jo sagle vertices connect karto minimum possible
+    cost ne without forming any cycle.
+
+    Pair class (inside Edge):
+    Pair(v, cost) mhnje vertex v la connect karaycha cost cost ne.
+    Comparable implement kelela ahe jaroor hote PriorityQueue sorting sathi.
+
+    MST start hotoy node 0 pasun.
+    PriorityQueue through minimum cost chi edge select karto.
+    Jar node visited nasel, add its cost to final MST cost.
+ */
 public class PrimsAlgorithm {
     static class Edge {
         int src;

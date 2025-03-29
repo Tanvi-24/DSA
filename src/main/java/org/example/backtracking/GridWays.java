@@ -1,6 +1,20 @@
 package org.example.backtracking;
 
 public class GridWays {
+    /*
+    GridWaysSolution (Backtracking/Recursion) in Brief:
+    Ha code top-left cell (0,0) pasun bottom-right cell (n-1,m-1) paryanta pochayche
+    total possible ways count karto.
+
+
+    Recursion use karun, ekda right (j+1) ani ekda down (i+1) move karto,
+    boundary cross zalya (i==n or j==m) ki return 0 karto, ani goal (n-1,m-1) paryant pochala tar return 1.
+
+    Overall:
+    Code recursive backtracking cha concept use karun possible paths cha count karto,
+     pan hyachi complexity high aste (O(2^(m+n))),
+     ji combination (permutation) formula ne optimize karta yete.(m-1+n-1)!/((n-1)! * (m-1)!)
+     */
     //time complexity = O(2^(m+n))
     //we can reduce the time complexity by using permutation formula
     // (m-1+n-1)!/((n-1)! * (m-1)!)

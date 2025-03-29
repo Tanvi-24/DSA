@@ -1,7 +1,22 @@
 package org.example.DynamicProgramming;
 
 import java.util.Arrays;
+/*
+    Find the nth Catalan Number, je combinatorics problems (like unique BSTs,
+    valid parentheses, triangulations etc.) solve karayla use hota.
+    C(n) = Σ (C(i) * C(n-i-1)) for i = 0 to n-1
 
+    Pure recursion.
+    Time: O(2^n)
+    Slow for large n due to overlapping subproblems.
+    memoization
+    Cache (dp[]) use karto to avoid duplicate recursive calls.
+    Time: O(n²), Space: O(n)
+    Tabulation
+    Iteratively compute each value from 0 to n.
+    Best for performance.
+    Time: O(n²), Space: O(n)
+ */
 public class CatalansNumber {
 
     //time complexity O(2^n)
@@ -58,7 +73,7 @@ public class CatalansNumber {
         System.out.println(catalan_memoization(n,dp));
         System.out.println(catalan_tabulation(n));
 
-        for(int i=1;i<5;i++){
+        for(int i=1;i<=5;i++){
             System.out.println(catalan_tabulation(i));
         }
     }

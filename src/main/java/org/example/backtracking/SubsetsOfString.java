@@ -3,6 +3,19 @@ package org.example.backtracking;
 import java.util.ArrayList;
 import java.util.List;
 
+/*
+    SubsetsOfString madhe ek given string ("abc") che sagle possible subsets generate kele ahet
+    (example: "", "a", "b", "c", "ab", "bc", "abc" etc.).
+    Recursive method (subSets) madhye pratyek character sathi don choices astat:
+    "yes choice": character subset madhye include karto.
+    "no choice": character subset madhye include karat nahi.
+    Base case madhe (i == length) ek subset generate zala ki to print karun result array madhe store karto.
+    Ek improved method (subSetsUsingSb) madhe mutable StringBuilder cha use kela ahe,
+     jyane backtracking ani recursion la efficient banavto (string madhun character delete karun
+     backtrack karto).
+    He sagle subsets generate karnyacha approach recursive ani backtracking var based aahe;
+    complexity O(n * 2^n) aste.
+ */
 public class SubsetsOfString {
 
     public static void main(String[] args) {

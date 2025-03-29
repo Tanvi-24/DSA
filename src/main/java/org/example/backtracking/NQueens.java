@@ -1,5 +1,18 @@
 package org.example.backtracking;
 
+/*
+    - NQueens problem madhe, ek chessboard var "N" queens aashya thevaychya
+        ki konich ekmekanna attack karu naye (row, column, diagonal madhye).
+
+    - Ha code backtracking cha use karun sagle possible combinations generate karto,
+     ani check karto ki position safe aahe ka (`isSafe()`).
+
+    - `nQueensSolution()` madhye queen safe asal tar queen (`Q`) place karto,
+     recursion ne pudhlya row sathi same try karto; jar pudhe possible nahi zal tar backtrack karto ani queen remove karto (`X`).
+
+    - Saglya rows (`n`) paryant queens successfully place zalya tar solution print karto,
+     ani final madhe total solutions cha count print karto.
+ */
 public class NQueens {
     //time complexity = O(n!)
     static int count =0;
@@ -11,7 +24,6 @@ public class NQueens {
         }
 
         //column loop
-
             for(int i=0;i<board.length;i++){
                 if(isSafe(board,row,i)){
                     board[row][i]='Q';
@@ -40,6 +52,8 @@ public class NQueens {
         return true;
     }
 
+
+
     public static void printBoard(char [][]board){
         System.out.println("------Chess Board------");
         for (int i=0;i<board.length;i++){
@@ -49,6 +63,7 @@ public class NQueens {
             System.out.println();
         }
     }
+
 
     public static void main(String[] args) {
 

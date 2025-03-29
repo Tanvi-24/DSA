@@ -8,6 +8,33 @@ import java.util.List;
 import java.util.Map;
 import java.util.Set;
 
+/*
+    Aplyala equations dilayat like "a / b = 2.0" and queries vicharlayat like "a / c".
+    Aplyala pratyek query la output dyaycha ahe, jar direct ya indirect path asel tar answer,
+     nahi tar -1.0.
+
+     Equations use karun graph banavto je weighted directed graph asel.
+    a / b = 2.0 mhnje edge from a to b with weight 2.0
+    b / a = 1 / 2.0 hi reverse edge
+
+    graph.putIfAbsent(u, new HashMap<>());
+    graph.get(u).put(v, values[i]);
+
+    graph.putIfAbsent(v, new HashMap<>());
+    graph.get(v).put(u, 1 / values[i]);
+    Hya code ne a -> b (2.0) and b -> a (0.5) he bi-directional edge add kartoy.
+
+    double val = dfs(graph, map.getKey(), dest, visited);
+    return map.getValue() * val;
+
+    Aplya goal aahe source to destination path find karaycha and multiply karat jaycha all edge weights.
+    If path nahi milala, return -1.0.
+
+    Building graph: O(E) where E = number of equations
+    Each query: worst case O(V + E) DFS traversal
+
+
+ */
 public class EvaluateDivision {
     public static double[] calcEquation(List<List<String>> equations, double[] values, List<List<String>> queries) {
 

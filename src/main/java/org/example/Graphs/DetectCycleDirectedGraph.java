@@ -1,7 +1,30 @@
 package org.example.Graphs;
 
 import java.util.ArrayList;
+/*
+    Aplyala directed graph dila ahe, ani aplyala check karaychay ki cycle ahe ka nahi.
 
+    Logic:
+    visited[] → ek array ahe jo sangto ki konta node visit zala ahe ka nahi.
+    stack[] → recursion stack track karto, mhnje konta node currently DFS madhye active ahe.
+    Jya veli ek node already stack[] madhye ahe, ani to parat disla, tar cycle confirm ahe.
+
+    Flow:
+    isCycle() function:
+    Saglya nodes la iterate karto.
+    Jar node visited nasel, tar isCycleUtil() call karto.
+    isCycleUtil():
+    visited[curr] = true karun mark karto.
+    stack[curr] = true mhnje toh aata DFS madhye active ahe.
+    Saglya neighbours la visit karto:
+    jar neighbour already stack madhye asel → cycle ahe.
+    jar visited nasel, tar recursion call karto.
+    last la stack[curr] = false karto, mhnje DFS stack madhun kadhto.
+
+    DFS + recursion stack vaprun directed graph madhye cycle detect karto.
+    Jar konta node stack madhye asel ani parat visit zala tar cycle detect karto.
+    He technique directed graphs sathi specific ahe.
+ */
 public class DetectCycleDirectedGraph {
     static class Edge {
         int src;

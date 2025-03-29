@@ -4,10 +4,26 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.LinkedList;
 import java.util.List;
-import java.util.Map;
 import java.util.Queue;
-import java.util.stream.Collectors;
 
+/*
+    Problem:
+    Binary Tree madhun right side view print karaycha aahe — mhanje tree chya pratyek level varun rightmost visible node.
+    ✅ Logic:
+    BFS (Level Order) traversal use kela aahe, pan right-to-left order ne.
+    Queue (Info object) madhe node chi level (dis) ani node store karto.
+    HashMap madhye first node (rightmost due to traversal order) for each level store karto using dis as key.
+    info.node.right la pahile queue madhe add karto, mag info.node.left — so rightmost node pahila visit hoto.
+    ✅ Step-by-step:
+    Start with root node at level 0.
+    For each node:
+    If level not already in HashMap, add it (rightmost node for that level).
+    Add right child first, then left child to the queue (right-first traversal).
+    At the end, collect values from HashMap to form the right view.
+    ✅ Complexity:
+    Time: O(n) – Each node once visited.
+    Space: O(n) – Queue + HashMap + Output List.
+ */
 public class RightSideView {
 
     static class TreeNode {

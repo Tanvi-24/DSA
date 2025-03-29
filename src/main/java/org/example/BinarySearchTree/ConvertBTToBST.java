@@ -2,6 +2,23 @@ package org.example.BinarySearchTree;
 
 import java.util.ArrayList;
 
+/*
+    Problem: Ek Binary Tree (BT) dilela aahe,
+    jo Binary Search Tree (BST) nahi. Tyala BST madhe convert karaychay.
+    Solution steps:
+    Inorder Traversal (inOrder):
+    Binary tree cha inorder traversal kartoy,
+    jyamule ek sorted arraylist generate hoil (binary tree BST nasla tari).
+    Convert to BST (insertBalancedHeightNodes):
+    Sorted arraylist use karun balanced BST tayar karto.
+    Madhli element (mid) root mhanun gheto, ani left/right subtrees recursion ne construct karto,
+    jyamule balanced BST milto.
+    Result Verification:
+    Final tree cha Preorder Traversal print karun verify karto ki balanced BST tayar zalay ki nahi.
+    Complexity:
+    Time: O(n) (Inorder traversal) + O(n) (Balanced BST creation) → total O(n)
+    Space: O(n) (Arraylist ani recursion stack mule).
+ */
 public class ConvertBTToBST {
     static class Node {
         int data;

@@ -9,6 +9,35 @@ import java.util.Queue;
 import java.util.TreeMap;
 
 /*
+    Problem:
+    Given a Binary Tree, perform a vertical traversal jithe:
+    Nodes group kele astat by vertical columns (horizontal distance),
+    Same level che nodes sorted in ascending order.
+    ✅ Logic:
+    Traversal Strategy:
+    BFS (Level Order) using a Queue<Info> je node cha horizontal distance (hd) ani level maintain karto.
+    TreeMap use kelay to auto-sort horizontal distances.
+    Map Structure:
+    Map<Integer, List<Pair>>
+    Key = horizontal distance (column),
+    Value = list of (node value, level).
+    Sorting Rule:
+    Nodes sorted by level (top to bottom),
+    If level same → sort by node value (ascending).
+    Data Structures:
+    Info → stores node, horizontal distance, and level.
+    Pair → stores node value and its level.
+    Final Step:
+    For each horizontal distance in sorted order (TreeMap),
+    Extract node values from sorted Pair list and prepare result list.
+    ✅ Complexity:
+    Time: O(n log n) due to sorting inside map values.
+    Space: O(n) for map and queue.
+    ✅ Output:
+    Main method madhe vertical order traversal perform karto,
+    ani pratek column-wise nodes print karto — sorted as per level & value
+ */
+/*
 vertical traversal such that the nodes belonging to same column, should be sorted according to level in increasing order
  and values with same level should be sorted in ascending order
 */

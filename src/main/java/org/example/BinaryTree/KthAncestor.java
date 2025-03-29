@@ -1,5 +1,19 @@
 package org.example.BinaryTree;
-
+/*
+    Problem:
+    Ek Binary Tree madhye given node cha K-th ancestor shodhne aahe (ancestor mhanje parent, grandparent, etc.).
+    Logic:
+    Recursive method (findKthAncestor) use karto:
+    Jar current node null asel tar -1 return karto.
+    Jar current node cha data target node (data) shi match jhala, tar distance 0 return karto.
+    Left ani right subtree madhun distance calculate karto.
+     Jar distance found nahi (-1) tar further -1 return karto.
+    Jar distance found zala, tar max+1 check karto; max+1 == k asel tar current node ha kth ancestor aahe.
+    Complexity:
+    Time: O(n) (each node exactly once visit karto)
+    Space: O(h) (recursion stack mule)
+    Final madhye kth ancestor ani root pasun cha distance print karto.
+ */
 public class KthAncestor {
     static class Node {
         int data;

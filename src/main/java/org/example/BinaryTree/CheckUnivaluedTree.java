@@ -1,5 +1,16 @@
 package org.example.BinaryTree;
-
+/*
+    Problem:
+    Ek binary tree madhle sagle nodes same value che (univalued) aahet ki nahi te check karaycha aahe.
+    Logic:
+    Recursive method (checkifUnivalued) vaprun each node cha data, tyachya left ani right child sobat compare karto.
+    Jar kahi node cha data tya child node peksha vegla asel tar direct false return karto.
+    Saglya nodes sathi jar ha condition valid asel tar true return karto.
+    Complexity:
+    Time: O(n) (each node exactly once)
+    Space: O(h) (recursion stack height-wise)
+    Final madhye "true" or "false" result verify karto.
+ */
 public class CheckUnivaluedTree {
     static class Node{
         int data;

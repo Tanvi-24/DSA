@@ -1,7 +1,21 @@
 package org.example.BinarySearchTree;
 
-import java.util.ArrayList;
-
+/*
+    Problem: Ek Binary Search Tree (BST) madhun given key delete karaychi aahe.
+    Deletion logic (3 cases):
+    Leaf node (no child):
+    Jar delete karaycha node leaf asel, tar direct tyala remove karun null return karto.
+    Ek child asel (either left or right):
+    Node delete karun, tyacha ekach child subtree la parent shi attach karto.
+    Don children astil:
+    Node delete karnyasathi, right subtree madhla Inorder successor (left-most node) shodhun
+    current node madhe data copy karto, ani nantar to successor recursively delete karto.
+    Implementation:
+    Recursive function delete() madhun hi logic apply karun node BST madhun delete karto.
+    Complexity:
+    Time: O(h) (BST chi height), best-case balanced madhe O(log n), worst-case madhe O(n).
+    Space: Recursion stack mule O(h).
+ */
 public class DeleteNode {
     static class Node {
         int data;

@@ -1,7 +1,16 @@
 package org.example.DynamicProgramming;
 
 import java.util.Scanner;
+/*
+    Find the nth Fibonacci number using Dynamic Programming.
+    Fibonacci series:
+    0, 1, 1, 2, 3, 5, 8, 13, ...
+    Formula: fib(n) = fib(n-1) + fib(n-2)
 
+    He code efficiently compute karto Fibonacci using bottom-up DP,
+    without recursion or stack overflow issues. Very commonly asked in interviews
+    to test basic DP skills.
+ */
 public class Fibonacci {
 
     public static int fib(int num){

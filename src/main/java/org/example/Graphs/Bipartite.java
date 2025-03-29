@@ -4,6 +4,34 @@ import java.util.ArrayList;
 import java.util.LinkedList;
 import java.util.Queue;
 
+/*
+    Check whether a given undirected graph is bipartite or not.
+    A bipartite graph is a graph where:
+    You can divide vertices into two sets (say yellow and green),
+    Such that no two adjacent vertices have the same color.
+
+    Use BFS traversal and coloring technique:
+    Start with unvisited (uncolored) node.
+    Color it with 0 (yellow), then color all its neighbors 1 (green), and so on.
+    If any adjacent vertex is already colored with the same color, it's not bipartite.
+
+    Code Breakdown:
+    isBipartite(ArrayList<Edge>[] graph):
+    color[]: initialized with -1, means unvisited.
+    Loop through each vertex.
+    If uncolored, start BFS from that node.
+    In BFS:
+    Assign alternate colors to connected nodes.
+    If a conflict is found (i.e. adjacent nodes have same color), return false.
+    Edge Class:
+    Represents an undirected edge with source and destination.
+
+    Time Complexity:
+    O(V + E) – Standard BFS traversal.
+
+    Non-cyclic trees are always bipartite.
+    Graphs with odd-length cycles are not bipartite.
+ */
 public class Bipartite {
     static class Edge {
         int src;

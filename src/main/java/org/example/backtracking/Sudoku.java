@@ -1,5 +1,15 @@
 package org.example.backtracking;
-
+/*
+    Sudoku problem madhe, 9x9 Sudoku puzzle cha valid solution recursive backtracking method (sudokuSolver)
+     ni shodhlela ahe.
+    Method madhye pratyek empty cell (0) madhe digits 1 to 9 try kele, ani isSafe() function vaprun
+    check kele ki digit row, column, ani 3x3 grid madhe safe aahe ka nahi.
+    Digit safe asal tar recursion pudhlya cell sathi continue karto;
+    jar pudhlya level la solution nahi milala tar backtrack karto ani dusra digit try karto.
+    Base case (row == 9) paryanta successfully pochlyavar solution exist karto ani puzzle print karun dakhavto.
+    Recursive backtracking mule effectively Sudoku puzzle solve karte,
+     jar possible nasel tar "Solution does not exist" dakhavto.
+ */
 public class Sudoku {
 
     public static boolean isSafe(int sudoku[][], int row, int col, int digit){

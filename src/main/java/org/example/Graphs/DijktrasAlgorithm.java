@@ -2,7 +2,37 @@ package org.example.Graphs;
 
 import java.util.ArrayList;
 import java.util.PriorityQueue;
+/*
+    Aplyala ek weighted graph dila ahe (with positive weights),
+    and aplyala source node pasun saglya nodes paryant shortest path
+    find karaycha ahe using Dijkstra's Algorithm.
 
+    Dijkstra’s Algorithm is a greedy algorithm.
+    It finds minimum distance from src to all other vertices in the graph.
+    It uses a PriorityQueue (Min Heap) to always pick the minimum path weight node.
+
+    dist[]: source to each vertex distance track karto.
+    PriorityQueue<Pair>: path weight la priority dyato (smallest path first).
+    visited[]: ek node la ekda visit zala ki parat consider nahi karto.
+
+    Algorithm Flow:
+    Initialize dist[]:
+    saglyana Integer.MAX_VALUE, except source la 0.
+    Add source in PQ with path 0.
+    While PQ is not empty:
+    Remove the pair with min path.
+    Mark as visited.
+    Traverse all neighbors.
+    dist[u] + wt < dist[v] → update distance and add to PQ.
+
+    Time Complexity:
+    With PriorityQueue: O(V + E log V)
+    Without PQ: O(V^2)
+
+    Dijkstra’s algo efficiently finds shortest paths using a min-heap.
+    Works only with positive edge weights.
+    dist[] is updated only when shorter path is found.
+ */
 //greedy algorithm to find shortest path
 public class DijktrasAlgorithm {
     static class Edge {

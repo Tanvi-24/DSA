@@ -1,5 +1,20 @@
 package org.example.BinarySearchTree;
-
+/*
+    Problem:
+    Ek given Binary Tree BST (Binary Search Tree) aahe ki nahi te validate karayche aahe.
+    Logic:
+    Recursive method validateBST() madhe:Pratyek node sathi ek minimum ani maximum allowed range check karto.
+    Jar node cha data minimum limit peksha kami or equal asel or
+    maximum limit peksha jast or equal asel tar false return karto.
+    Nahitar recursion madhun left subtree (updated max limit) ani right subtree
+    (updated min limit) sathi check karto.
+    Key idea:
+    Left subtree cha data root peksha kami ani right subtree cha data root
+    peksha jast asava hi BST chi property validate karto.
+    Complexity:
+    Time: O(n) (each node exactly once check hoto)
+    Space: O(h) (recursion stack mule).
+ */
 public class ValidateBST {
     static class Node {
         int data;

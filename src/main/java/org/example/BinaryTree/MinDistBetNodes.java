@@ -1,5 +1,29 @@
 package org.example.BinaryTree;
-
+/*
+    Problem:
+    Binary Tree madhye don nodes madhil minimum distance (in terms of number of edges) find karaycha aahe.
+    ✅ Logic Breakdown:
+    Step 1: Find LCA (Lowest Common Ancestor)
+    lca2() method recursively common ancestor find karto for nodes n1 and n2.
+    Jar current node n1/n2 sarkha asel, tar to LCA asto.
+    Donhi subtrees madhun recursive check karto.
+    Step 2: Find Distance from LCA to Each Node
+    lcaDist() method LCA pasun node n1/n2 paryant cha distance calculate karto.
+    If current node null asel, return -1.
+    If match jala tar return 0.
+    Nantar left/right distance madhun valid distance return karto with +1.
+    Step 3: Final Distance
+    minDist() method madhe:
+    First LCA find karto
+    Then LCA to n1 and LCA to n2 cha distance calculate karto
+    Final result = dist1 + dist2
+    ✅ Complexity:
+    Time: O(n) – Full tree traverse karto
+    Space: O(h) – Recursion stack (h = height of tree)
+    ✅ Output:
+    Main method madhe minDist(root, 4, 5) call karun minimum distance print karto.
+    e.g., Output: Minimum distance between two nodes is 2
+ */
 public class MinDistBetNodes {
     static class Node {
         int data;

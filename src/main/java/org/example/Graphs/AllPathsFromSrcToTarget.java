@@ -1,9 +1,27 @@
 package org.example.Graphs;
 
-import javax.swing.*;
 import java.util.ArrayList;
-import java.util.Stack;
+/*
+    Find all possible paths from a given source node to a target node in a directed graph.
+    Use recursive DFS (Depth First Search) to explore all paths.
+    Maintain an ArrayList to keep track of the current path.
+    When the current node equals the target, print the path.
+    After exploring one neighbor, backtrack by removing the last node.
 
+    Code Details:
+    srcToTarget():
+    This method starts the process.
+    It creates an empty list and calls the helper util() with source and target.
+    util():
+    Add the current source to the list.
+    If src equals target, print the list (this is one complete path).
+    Otherwise, iterate through all edges from the current node.
+    For each edge, recursively call util() for the destination.
+    After the recursive call, backtrack by removing the last added node from the list.
+    Graph Representation:
+    The graph is stored as an array of ArrayLists, where each list contains outgoing edges from that vertex.
+    Each Edge has a source (src) and a destination (dest).
+ */
 public class AllPathsFromSrcToTarget {
     static class Edge {
         int src;

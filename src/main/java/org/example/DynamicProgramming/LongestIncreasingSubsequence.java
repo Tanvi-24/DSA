@@ -2,7 +2,23 @@ package org.example.DynamicProgramming;
 
 import java.util.Arrays;
 import java.util.HashSet;
+/*
+    Tumhala dilelya array madhe Longest Increasing Subsequence (LIS) chi length find karaychi aahe.
+    Increasing subsequence = elements cha order maintain karto (not necessarily contiguous).
+    Example: {50, 3, 10, 7, 40, 80} → LIS is {3, 7, 40, 80} → length 4.
 
+    HashSet vaprun duplicates remove kele.
+    Unique elements sort kele → get strictly increasing sequence (arr2).
+    arr1 (original array) ani arr2 (sorted unique array) var Longest Common Subsequence (LCS) apply kelay.
+    LIS = LCS(original, sorted unique array)
+
+    LCS Function:
+    dp[i][j] = LCS length for arr1[0..i-1] and arr2[0..j-1].
+    If elements match: dp[i][j] = dp[i-1][j-1] + 1.
+    Else: take max from top or left cell.
+    O(n^2) due to LCS with DP.
+
+ */
 public class LongestIncreasingSubsequence {
     public static int lis(int arr[]){
         HashSet<Integer> set = new HashSet<>();

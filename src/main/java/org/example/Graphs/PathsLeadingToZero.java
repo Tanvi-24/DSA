@@ -1,8 +1,25 @@
 package org.example.Graphs;
 
 import java.util.ArrayList;
-import java.util.List;
+/*
+    Aplyala ek directed graph dila ahe with n nodes (0 to n-1) and some connections.
+    Tumhala minimum number of edges reorder karaychya ahet such that saglya nodes kadhitari
+    node 0 la path den.
 
+    Graph create karto using given connections:
+    Add edge from → to with weight 1 (original direction).
+    Then add reverse edge to → from with weight 0 (reverse direction as reference only).
+    👉 Reverse edge originally exists nahi but add karto tracking sathi.
+
+    DFS + Path Checking:
+    For every unvisited node starting from 1 to n-1, call hasPath(graph, i, 0, visited):
+    Inside hasPath, jar current edge is a reverse edge (weight == 0) and there's no path
+    to 0 from its target,
+    Then reverse it by incrementing count++.
+    Otherwise, normal DFS continue.
+    Function hasPathToZero recursively check karto if target node 0 paryanta path exists
+    using reverse + original edges
+ */
 public class PathsLeadingToZero {
 
     public static int count = 0;

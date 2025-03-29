@@ -1,5 +1,18 @@
 package org.example.BinaryTree;
-
+/*
+    Problem:
+    Ek given Binary Tree la invert (swap) karaycha aahe; left subtree ani right subtree cha position interchange karaychi aahe.
+    Logic:
+    Recursive method (invertTree) vaprun post-order traversal madhye (left-right-root) invert kartoy:
+    First, left ani right subtrees separately invert karto.
+    Nantar current root cha left ani right child swap karto.
+    Implementation detail:
+    Temporary Node (temp) vaprun swapping easy kelay.
+    Complexity:
+    Time: O(n) (each node exactly once visit karto)
+    Space: O(h) (recursion stack mule)
+    Final madhye tree cha preorder traversal print karun inverted tree verify karto.
+ */
 public class InvertBinaryTree {
     static class Node{
         int data;

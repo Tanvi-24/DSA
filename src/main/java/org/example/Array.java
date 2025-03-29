@@ -13,10 +13,11 @@ public class Array {
         int height[] ={4,2,0,6,3,2,5};
         int stocks[] ={7,1,5,3,6,4};
         int newHeights[] = {0,1,0,2,1,0,1,3,2,1,2,1};
+        int kadanes [] ={-2,4,-3,1,5};
         array.pairs(numbers);
         array.subArray(numbers);
         array.findMaxSubArraySum(numbers);
-        array.kadanesMaxSubarraySum(numbers);
+        array.kadanesMaxSubarraySum(kadanes);
         array.trappedRainWater(newHeights);
         array.maxProfitforBuySellStock(stocks);
         containerWithMostWater(new int[]{2,3,4,5,18,17,6});
@@ -43,6 +44,7 @@ public class Array {
 
         return maxSoFar;
     }
+
     public void pairs(int array[]){
         for(int i=0;i<array.length;i++)
         {

@@ -1,8 +1,31 @@
 package org.example.BinaryTree;
 
 import java.util.ArrayList;
-import java.util.Arrays;
+/*
+    Problem:
+    Binary Tree madhye dilelya don nodes saathi Lowest Common Ancestor (LCA) shodhaycha aahe.
+    ✅ Method 1: Using Path Lists (lca)
+    getPath():
+    Root pasun target node paryant cha path ArrayList madhe store karto.
+    Node match zala ki true return karto; nahi zala tar path madhun node remove karto (backtrack).
+    lca():
+    Donhi nodes saathi path collect karto.
+    Donhi path compare karto, jithe node mismatch hota tya adhi cha last common node return karto (toch LCA asto).
+    Time Complexity: O(n)
+    Space Complexity: O(n) (path store karnyasathi)
 
+     Method 2: Optimized Recursive Approach (lca2)
+    Logic:
+    Jar current node null asel, n1/n2 barobar asel tar toh node return karto.
+    Left ani right subtree madhun recursive LCA call karto.
+    Donhi side var non-null LCA milala tar current node LCA asel.
+    Ek side null asel tar dusra LCA return karto.
+    Time Complexity: O(n)
+    Space Complexity: O(h) (recursion stack, h = height of tree)
+    ✅ Output:
+    Main method madhye lca() ani lca2() donhi methods call karun LCA print karto.
+    Donhi methods correct aahet, pan lca2() optimized aahe (less space usage).
+ */
 public class LCA {
     static class Node {
         int data;

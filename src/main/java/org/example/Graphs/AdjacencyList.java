@@ -1,11 +1,31 @@
 package org.example.Graphs;
 
-import org.example.Array;
-
 import java.util.ArrayList;
 import java.util.LinkedList;
 import java.util.Queue;
+/*
+    Implement a graph using Adjacency List with support for:
+    BFS Traversal
+    DFS Traversal
+    Check if a path exists between two nodes
 
+    Graph Representation:
+    ArrayList<Edge>[] graph → An array of lists, where each list stores all outgoing edges from a vertex.
+    Edge class has src, dest, and weight.
+
+    BFS Traversal (Level-order traversal):
+    Uses a Queue.
+    Visits all nodes level by level.
+    Marks visited nodes to avoid reprocessing.
+
+     DFS Traversal (Depth-first):
+    Uses recursion.
+    Visits node, marks it, and recursively explores its neighbors.
+
+     Check if path exists from src to dest:
+    Recursively explore neighbors until src == dest is found.
+    Use visited array to avoid infinite loops in cycles.
+ */
 public class AdjacencyList {
     static class Edge{
         int src;

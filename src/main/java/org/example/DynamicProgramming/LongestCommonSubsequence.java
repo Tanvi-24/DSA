@@ -1,5 +1,24 @@
 package org.example.DynamicProgramming;
 
+/*
+    Dilelya don strings madhye common subsequence find karaychi aahe ji order maintain karte.
+    Subsequence mhanje characters skip karun pan order maintain karun banavlela string.
+
+    1. Recursion – O(2^(m+n))
+    Base Case: If n==0 || m==0 → return 0.
+    If str1[n-1] == str2[m-1] → match zala → 1 + recur on previous indexes.
+    Else, max of excluding last char from either str1 or str2
+
+    2. Memoization – O(n * m)
+    Recursion sobat dp[n][m] madhe result store karto to avoid recomputation.
+    Already stored result dp[n][m] != -1 asel tar directly return.
+
+     3. Tabulation (Bottom-Up DP) – O(n * m)
+     DP table dp[n+1][m+1] initialize kelela.
+    Loop through all characters:
+    If chars match → dp[i][j] = dp[i-1][j-1]+1
+    Else → dp[i][j] = max(dp[i-1][j], dp[i][j-1])
+ */
 public class LongestCommonSubsequence {
     //recursion - O(2^m+n)
     public static int longestsubsequestCount(String str1, String str2, int n, int m){

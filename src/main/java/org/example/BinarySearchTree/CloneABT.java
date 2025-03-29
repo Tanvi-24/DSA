@@ -3,6 +3,25 @@ package org.example.BinarySearchTree;
 import java.lang.*;
 import java.util.*;
 
+/*
+    Problem: Given a Binary Tree where every node has pointers: left, right,
+    and special random pointer pointing to any node in the tree or null.
+    You need to create an exact clone (duplicate) of this binary tree.
+    Solution approach:
+    Clone left-right pointers (clonelr()):
+    Using recursion, create a new tree and clone all left-right nodes.
+    A HashMap stores the mapping between original and cloned nodes.
+    Clone random pointers (copyrandom()):
+    After cloning left-right pointers, again recursively set the random pointers in
+    cloned tree using HashMap references.
+    HashMap ensures original tree node ani cloned tree node madhe mapping maintain kartoy,
+    jyamule random pointers efficiently set karayla help hote.
+    Final madhye, original ani cloned tree cha inorder traversal print kela aahe,
+    verifying ki clone exactly original sarkha zalay ka.
+    Complexity:
+    Time: O(n) (each node visited exactly twice)
+    Space: O(n) (due to HashMap ani recursion stack space)
+ */
 class Tree {
     int data;
     Tree left, right, random;

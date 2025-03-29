@@ -9,6 +9,17 @@ You are also given an integer success. A spell and potion pair is considered suc
 if the product of their strengths is at least success.
 Return an integer array pairs of length n where pairs[i] is the number of potions that will form a
 successful pair with the ith spell.*/
+
+/*
+    Given two arrays: spells (each spell cha strength) ani potions (each potion cha strength).
+    Ek success number dilela aahe; jar spell cha strength × potion cha strength ≥ success,
+    tar toh pair successful aahe.
+    First, potions array sort kelay,
+    ani binary search use karun each spell sathi count karto ki kiti potions successful pair banavtat.
+    Binary search madhun minimum index milto jo successful pair banavto;
+    tya index pasun end paryant sagle successful astat; tyacha count store karun result array madhye takto.
+    Hyamule result efficiently milto (O(n log m) complexity), jithe n spells ani m potions aahet.
+ */
 public class SuccessCount {
         public int[] successfulPairs(int[] spells, int[] potions, long success) {
             int successArr[] = new int[spells.length];

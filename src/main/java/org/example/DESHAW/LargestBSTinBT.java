@@ -1,3 +1,33 @@
+package org.example.DESHAW;
+/*
+    Tumhala ek Binary Tree dilay, tyat largest size chi BST subtree (Binary Search Tree asnari subtree)
+    find karaychi aahe.
+    ✅ Logic:
+    Postorder Traversal (left → right → root) use karun bottom-up approach.
+    Each node sathi BST properties validate karto:
+    Left subtree should be BST.
+    Right subtree should be BST.
+    root.data > max(left) and root.data < min(right)
+    Jithe BST cha rule break hotoy, titha max size of BST subtree la track karun thevto.
+    ✅ nodeInfo Class Contains:
+    Field	Meaning
+    size	Size of the current subtree
+    min	Minimum value in subtree
+    max	Maximum value in subtree
+    isBST	Is subtree a BST or not
+    ✅ Code Flow (Postorder):
+    Traverse left & right subtrees and gather info.
+    If both are BSTs and current node satisfies BST condition:
+    Mark current subtree as BST.
+    size = left.size + right.size + 1
+    Else:
+    isBST = false
+    size = max(left.size, right.size)
+    ✅ Complexity:
+    Time: O(n) → every node once visited
+    Space: O(h) → recursion stack (h = height)
+ */
+
 class Node {
     int data;
     Node left, right;

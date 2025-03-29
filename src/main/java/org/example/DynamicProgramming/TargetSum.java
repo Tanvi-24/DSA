@@ -1,5 +1,22 @@
 package org.example.DynamicProgramming;
+/*
+    Given an array numbers[] and a target sum,
+    check whether any subset of elements can add up to exactly that sum.
+    This is a classic Subset Sum Problem, and it's solved using Tabulation (Bottom-Up DP).
+    Logic Behind the Code:
+    dp[i][j] tells whether we can achieve sum j using the first i elements of the array.
+    Initialization:
+    dp[i][0] = true for all i: Because you can always form sum 0 by taking nothing.
+    dp[0][j] = false for all j > 0: You can't form any positive sum with 0 elements.
 
+    Transitions:
+    For each element:
+    Either you include the current number val if val <= j.
+    dp[i][j] = dp[i-1][j-val]
+    Or you exclude the current number.
+    dp[i][j] = dp[i-1][j]
+    Final answer will be in dp[n][sum] (where n = numbers.length).
+ */
 //example of unbounded knapsack
 public class TargetSum {
     //time complexity - O(n*sum)

@@ -1,5 +1,28 @@
 package org.example.DynamicProgramming;
+/*
+    Find the maximum profit by cutting a rod of length n into pieces, where each piece of
+    length i has a given price[i-1].
+    This is similar to Unbounded Knapsack:
+    weights → lengths
+    values → prices
+    capacity → rodLength
 
+    Approach (Tabulation - Bottom Up):
+    Create a DP table dp[i][j], where:
+    i = piece size (1 to n)
+    j = current rod length
+    Base cases:
+    dp[i][0] = 0 (zero rod length = zero profit)
+    dp[0][j] = 0 (no pieces to cut = zero profit)
+
+    Include the piece: Add its price + solve for remaining length.
+    Exclude the piece: Move to smaller size
+
+    prices = [1,5,8,9,10,17,17,20] and rodLength = 8
+    Answer: 22
+    One way: 2 cuts of length 2 (5+5), 2 cuts of length 2 again (5+5), etc.,
+    based on max combinations.
+ */
 public class RodCutting {
     //here size of the prices is also the length of that index
     //similar to knapsack problem here, weight -> length; value -> prices; w->rodLength

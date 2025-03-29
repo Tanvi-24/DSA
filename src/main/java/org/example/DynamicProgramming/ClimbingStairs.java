@@ -4,7 +4,34 @@ import java.util.Arrays;
 import java.util.Scanner;
 
 /*
-find number of ways to climb nth stair , if you can climb 1 or 2 stairs
+    find number of ways to climb nth stair , if you can climb 1 or 2 stairs
+
+    Tumhala n number of stairs dile aahet. Tumhi 1, 2 (or 1,2,3) steps ekach vela chadhu shakta.
+    Find kara ki kitya different ways ahet nth stair var पोहोचण्यासाठी.
+
+    Recursion (Brute Force):
+    Tumhi 1 step or 2 step gheta, tar total ways:
+    ways(n) = ways(n-1) + ways(n-2)
+    Base cases:
+    n == 0 → 1 way (reached top)
+    n < 0 → 0 ways
+    Time Complexity: O(2^n) (slow)
+
+    Memoization (Top-Down DP):
+    Recursive logic + dp[] array use karun results cache kele aahet.
+    ways[n] madhe store kela jato jar already calculate jhala asel tar.
+    Time Complexity: O(n)
+    Allowing 1, 2, 3 Steps (Extended Case):
+    Formula:
+    ways(n) = ways(n-1) + ways(n-2) + ways(n-3)
+    Memoization logic same aahe, but 3-step allowance add kela
+
+    Tabulation (Bottom-Up DP):
+    DP array fill kela bottom-up style ne.
+    Start from 0 → n
+    Use: dp[i] = dp[i-1] + dp[i-2]
+    Time Complexity: O(n)
+    Space: O(n)
  */
 
 public class ClimbingStairs {
@@ -54,7 +81,7 @@ public class ClimbingStairs {
             return ways[n];
         }
 
-        ways[n] = findWays(n-1,ways)+findWays(n-2,ways)+memoizationCountWays(n-3,ways);
+        ways[n] = findWays(n-1,ways)+findWays(n-2,ways)+findWays(n-3,ways);
         return ways[n];
     }
 

@@ -1,5 +1,24 @@
 package org.example.BinaryTree;
-
+/*
+    Problem:
+    Given Binary Tree la Sum Tree madhe convert karaycha aahe — mhanje pratyek node cha value tyachya left + right subtree cha total sum asava.
+    ✅ Logic:
+    calculateSum() method:
+    Recursively left and right subtree cha sum calculate karto.
+    Current node chya original data la temporarily store karto (return karnyasathi).
+    Left subtree + right subtree cha total sum gheun current node cha data update karto.
+    Last la original node data return karto for parent calculation.
+    Note:
+    Leaf nodes la 0 banaval jate (karan left/right null astat).
+    preOrder() method:
+    Final tree preorder format madhe print karto to verify transformation.
+    ✅ Complexity:
+    Time: O(n) — each node visit once
+    Space: O(h) — recursion stack (h = tree height)
+    ✅ Output:
+    calculateSum() call karun tree transform karto, and preOrder() ni updated tree print karto.
+    Original node values lost hote and replaced by sum of left and right subtree nodes.
+ */
 public class TransformTOSumTree {
     static class Node {
         int data;

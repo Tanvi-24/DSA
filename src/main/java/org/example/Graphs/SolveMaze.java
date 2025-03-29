@@ -3,6 +3,34 @@ package org.example.Graphs;
 import java.util.LinkedList;
 import java.util.Queue;
 
+/*
+    Aplyala ek 2D char matrix (maze) dila ahe jithe '+' = wall and '.' = open path.
+    Tumhala entrance position dila ahe, and you have to find the minimum steps to reach
+    the nearest exit (edge of the maze) using BFS traversal.
+
+    Initialization:
+    int[][] directions = {{1,0},{0,1},{-1,0},{0,-1}};
+    Queue<Pair> queue = new LinkedList<>();
+    directions define karto 4 possible directions (right, down, left, up).
+    BFS sathi queue use kartoy.
+    Entrance point queue madhe add kelay.
+
+     BFS Traversal:
+    while(!queue.isEmpty()){
+       // level wise traverse (min steps track karayla)
+    }
+    BFS traversal karto, step-by-step.
+    Jithe '.' asel, tithun pudhe move karto.
+    Maze madhe visited mark kartoy by replacing . with '+'.
+
+     Exit Condition:
+    if((row != entrance[0] || col != entrance[1]) && (row==0 || row==n-1 || col==0 || col==m-1)){
+       return min;
+    }
+    Jara apan entrance la sodun kahi dusra edge reach kelay tar that’s an exit → return the step count.
+
+    O(N * M), where N = rows, M = columns (BFS visit every cell once)
+ */
 public class SolveMaze {
     public class Pair{
         int a;

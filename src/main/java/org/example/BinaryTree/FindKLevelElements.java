@@ -1,5 +1,18 @@
 package org.example.BinaryTree;
-
+/*
+    Problem:
+    Binary Tree madhla ek specific level (k) varche nodes print karayche aahet.
+    Logic:
+    Recursive method (kLevelNodes) pre-order traversal (root-left-right) vaprun
+    each node cha level track karto:
+    Root node pasun start karun, current level increment karto.
+    Current level k sarkha asel tar node cha data print karto.
+    Jar nahi asel, tar recursion ni left ani right subtrees sathi search karto.
+    Complexity:
+    Time: O(n) (each node exactly once visit karto)
+    Space: O(h) (recursion stack mule)
+    Final madhye dilelya level (k) che nodes print karto.
+ */
 public class FindKLevelElements {
 
     static class Node{

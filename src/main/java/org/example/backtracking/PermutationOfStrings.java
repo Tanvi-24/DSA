@@ -2,7 +2,19 @@ package org.example.backtracking;
 
 import java.util.ArrayList;
 import java.util.List;
+/*
+    - **PermutationsOfStrings** madhe ek string (`"abc"`) che **sagle possible permutations**
+     generate kele ahet (jase ki "abc", "acb", "bac", etc.).
 
+    - Recursive function `findPermutation()` madhye ek-ek character (`curr`) string madhun kadhun tyala
+    `ans` la jodto ani pudhchi recursion call karto, baki urlelya string sobat.
+
+    - Base case (`str.length()==0`) la pohochlyavar ek permutation tayar zaleli aste,
+     ji `list` madhye store karun print keli jate.
+
+    - Ha method backtracking cha use karun sagle permutations efficiently generate karto,
+     hyachi complexity `O(n * n!)` aste.
+ */
 public class PermutationOfStrings {
     public static void main(String[] args) {
         String str = "abc";

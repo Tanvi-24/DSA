@@ -3,6 +3,23 @@ package org.example.BinaryTree;
 import java.util.ArrayList;
 import java.util.List;
 
+/*
+    Problem: Given Binary Tree madhe "good nodes" shodhayche aahet.
+    "Good node" manje asa node jyacha value root pasun tyachya parent nodes madhlya
+    maximum value peksha kami nasel (greater or equal asel).
+    Logic:
+    Recursive method (findGoodNode) use karun tree traverse karto.
+    Root pasun current node paryant cha maximum value track karto.
+    Current node cha value tracked maximum peksha kami nasel tar node "good" aahe
+    ani tyala list madhe add karto.
+    Implementation details:
+    Traversal pre-order (root, left, right) cha logic vaprun recursive call karto.
+    Finally, "good nodes" cha count (list cha size) print karto.
+    Complexity:
+    Time: O(n) (each node exactly once)
+    Space: O(h) recursion stack + O(n) list space (total good nodes).
+    Final madhye good nodes cha count print karun verify karto.
+ */
 public class FindGoodNodes {
 
     static class TreeNode{

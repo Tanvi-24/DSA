@@ -1,5 +1,20 @@
 package org.example.BinarySearchTree;
-
+/*
+    Problem:
+    Ek given Binary Search Tree (BST) cha mirror (exact opposite) tayar karaycha aahe.
+    Mirror logic:
+    Recursive method mirror() madhye each node cha left subtree ani right subtree swap karto,
+    jyane tree cha exact mirror banato.
+    Implementation Steps:
+    Recursively left ani right subtrees sathi mirror() call karto.
+    Recursive call nantar, current node cha left subtree madhe right subtree attach karto,
+     ani right subtree madhe left subtree attach karto.
+    Result Verification:
+    Mirror tree cha inOrder() ani preOrder() traversal print karun verify karto.
+    Complexity:
+    Time: O(n) (each node exactly once visit hoto)
+    Space: O(h) (recursion stack, height of tree).
+ */
 public class MirrorABST {
 
     static class Node {
